@@ -1,0 +1,5 @@
+.header-options {
+  display: flex;
+  width: auto;
+  justify-content: flex-start;
+}
