@@ -1,0 +1,76 @@
+.profile-main {
+  width: 100%;
+}
+
+.profile-main__background {
+  width: 100%;
+  height: 30%;
+  object-fit: contain;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.profile-main__background-image {
+  width: 100%;
+  height: 100%;
+}
+
+.profile-avatar {
+  transform: translate(5%, -50%);
+}
+
+.profile-main__details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -12%;
+}
+.pm-left {
+  text-align: left;
+  padding: 10px 2rem;
+}
+
+.pm-left h2 {
+  font-weight: 500;
+  margin: 0;
+}
+
+.profile-place-info {
+}
+
+.profile-place-info span:first-child {
+  margin-right: 10px;
+}
+
+.profile-contact-info a {
+  text-decoration: none;
+  color: rgb(8, 129, 185);
+  font-weight: 500;
+}
+
+.pm-right {
+  text-align: left;
+  padding: 10px 2rem;
+  width: 30%;
+}
+.profile-contact-info a:hover {
+  text-decoration: underline;
+}
+
+.profile-company-info {
+  display: flex;
+  align-items: center;
+}
+
+.company,
+.college {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: rgb(71, 71, 71);
+}
+
+.profile-button-group {
+  width: 100%;
+  display: flex;
+  padding: 10px 2rem;
+  justify-content: flex-start;
+}

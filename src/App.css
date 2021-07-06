@@ -1,11 +1,13 @@
 .App {
   text-align: center;
+  overflow: hidden;
 }
 
 .body {
   background-color: #f3f2ef;
   height: 100%;
   width: 100%;
+  padding: 30px 60px;
 }
 
 .App-logo {

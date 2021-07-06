@@ -1,0 +1,10 @@
+.curve-button {
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: white;
+  border: 1px solid rgb(20, 20, 20);
+  color: gray;
+  margin-right: 10px;
+}
