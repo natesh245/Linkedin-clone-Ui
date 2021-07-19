@@ -36,6 +36,8 @@
 }
 
 .profile-place-info {
+  color: gray;
+  font-size: 14px;
 }
 
 .profile-place-info span:first-child {

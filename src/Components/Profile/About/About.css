@@ -1,0 +1,24 @@
+.profile-about {
+  width: 100%;
+
+  margin: 1.5rem 0;
+}
+
+.about-heading {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.about-heading h2 {
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.about-content {
+  padding: 0 1rem 1rem;
+  text-align: left;
+  font-size: 0.8rem;
+}
