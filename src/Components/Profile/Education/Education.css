@@ -1,0 +1,44 @@
+.profile-education {
+  width: 100%;
+  padding: 1rem;
+  border-top: 1px solid rgb(189, 189, 189);
+}
+
+.education-heading {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 1rem; */
+}
+
+.education-heading h2 {
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.education-content {
+  padding: 1rem;
+}
+
+.education-content p {
+  font-size: 0.8rem;
+}
+
+.education-list {
+  display: flex;
+}
+
+.education-list img {
+  width: 50px;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.education-info {
+  text-align: left;
+}
+
+.edu-timeline {
+  color: gray;
+}

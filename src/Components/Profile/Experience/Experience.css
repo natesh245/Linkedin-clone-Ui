@@ -1,0 +1,85 @@
+.profile-experience {
+  width: 100%;
+  padding: 1rem;
+}
+
+.experience-heading {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 1rem; */
+}
+
+.experience-heading h2 {
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.experience-content {
+  /* padding: 1rem 0; */
+}
+
+.experience-company {
+  padding: 1rem 0;
+}
+
+.experience-company:not(:last-child) {
+  border-bottom: 1px solid rgb(189, 189, 189);
+}
+
+.experience-company .company-header {
+  display: flex;
+}
+
+.experience-company .company-header img {
+  width: 50px;
+  margin-right: 1rem;
+}
+
+.experience-company .company-header div,
+.position-content {
+  text-align: left;
+}
+
+.position-content {
+  padding-left: 4rem;
+  /* padding-bottom: 1rem; */
+  position: relative;
+  min-height: 100px;
+}
+
+.position-content .bullet-point {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  top: 10px;
+  left: 19px;
+  border-radius: 50%;
+  background-color: rgb(194, 194, 194);
+}
+
+.position-content:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  /* height: calc(100%-22px); */
+  min-height: calc(100px - 22px);
+  width: 2px;
+  background-color: rgb(194, 194, 194);
+}
+
+.position-content h6 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.position-content p {
+  font-size: 0.8rem;
+}
+
+.position-timeline,
+.position-place {
+  color: gray;
+}
