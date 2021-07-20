@@ -80,9 +80,9 @@ function Experience() {
                       <p className="position-type">{position.type}</p>
                       <p className="position-timeline">
                         {position.start +
-                          "-" +
+                          " - " +
                           position.end +
-                          "." +
+                          " . " +
                           position.duration}
                       </p>
                       <p className="position-place">{position.place}</p>

@@ -27,8 +27,8 @@ function Education() {
               <img src={edu.schoolImage} alt={edu.school} />
               <div className="education-info">
                 <h4>{edu.school}</h4>
-                <p className="edu-degree">{edu.degree + "." + edu.field}</p>
-                <p className="edu-timeline">{edu.start + "-" + edu.end}</p>
+                <p className="edu-degree">{edu.degree + " . " + edu.field}</p>
+                <p className="edu-timeline">{edu.start + " - " + edu.end}</p>
               </div>
             </div>
           );
