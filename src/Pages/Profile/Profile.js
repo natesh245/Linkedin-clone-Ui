@@ -8,12 +8,15 @@ import Experience from "../../Components/Profile/Experience/Experience";
 import Education from "../../Components/Profile/Education/Education";
 import Suggestion from "../../Components/Profile/Suggestion/Suggestion";
 import Dialog from "../../Components/Dialog/Dialog";
+import EditSummary from "../../Components/Profile/About/EditSummary/EditSummary";
 
 function Profile() {
   return (
     <div className="profile">
       <div className="profile__left">
-        <Dialog title="Edit" isOpen={false} />
+        <Dialog title="Edit" isOpen={true}>
+          <EditSummary />
+        </Dialog>
         <ProfileMain />
         <Dashboard />
         <About />
