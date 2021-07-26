@@ -9,7 +9,7 @@
   z-index: 999;
 
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   box-shadow: 0 1px 5px rgb(170, 170, 170);
 }
@@ -19,8 +19,12 @@
   display: flex;
   /* justify-content: space-between; */
   align-items: center;
+  margin-left: 5%;
 }
 
 .header__right {
   width: 50%;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
 }

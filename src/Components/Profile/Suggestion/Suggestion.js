@@ -33,7 +33,9 @@ function Suggestion({ title }) {
   return (
     <Card>
       <div className="profile-suggestion">
-        <h3>{title}</h3>
+        <h3 style={{ fontSize: "1rem", textAlign: "left", fontWeight: "500" }}>
+          {title}
+        </h3>
         {suggestions.map((suggestion) => {
           return (
             <People

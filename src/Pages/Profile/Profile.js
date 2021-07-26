@@ -7,11 +7,13 @@ import Activity from "../../Components/Profile/Activity/Activity";
 import Experience from "../../Components/Profile/Experience/Experience";
 import Education from "../../Components/Profile/Education/Education";
 import Suggestion from "../../Components/Profile/Suggestion/Suggestion";
+import Dialog from "../../Components/Dialog/Dialog";
 
 function Profile() {
   return (
     <div className="profile">
       <div className="profile__left">
+        <Dialog title="Edit" isOpen={false} />
         <ProfileMain />
         <Dashboard />
         <About />

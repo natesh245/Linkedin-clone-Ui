@@ -1,5 +1,6 @@
 import "./Education.css";
 import AddIcon from "@material-ui/icons/Add";
+import CreateIcon from "@material-ui/icons/Create";
 
 const education = [
   {
@@ -24,6 +25,9 @@ function Education() {
         {education.map((edu) => {
           return (
             <div className="education-list">
+              <div className="edit-icon">
+                <CreateIcon />
+              </div>
               <img src={edu.schoolImage} alt={edu.school} />
               <div className="education-info">
                 <h4>{edu.school}</h4>

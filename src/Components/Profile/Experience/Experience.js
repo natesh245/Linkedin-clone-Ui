@@ -1,6 +1,7 @@
 import "./Experience.css";
 
 import AddIcon from "@material-ui/icons/Add";
+import CreateIcon from "@material-ui/icons/Create";
 
 const experience = [
   {
@@ -75,6 +76,9 @@ function Experience() {
                 {exp.positions.map((position) => {
                   return (
                     <div className="position-content">
+                      <div className="edit-icon">
+                        <CreateIcon />
+                      </div>
                       <span className="bullet-point"></span>
                       <h6>{position.name}</h6>
                       <p className="position-type">{position.type}</p>

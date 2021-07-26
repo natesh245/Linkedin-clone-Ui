@@ -1,5 +1,6 @@
 .header-options {
   display: flex;
-  width: auto;
+  /* width: auto; */
   justify-content: flex-start;
+  align-items: center;
 }
