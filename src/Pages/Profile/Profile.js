@@ -14,9 +14,6 @@ function Profile() {
   return (
     <div className="profile">
       <div className="profile__left">
-        <Dialog title="Edit" isOpen={true}>
-          <EditSummary />
-        </Dialog>
         <ProfileMain />
         <Dashboard />
         <About />

@@ -1,7 +1,7 @@
 import "./BackDrop.css";
-function BackDrop({ children, onClick }) {
+function BackDrop({ children, onClickHandler }) {
   return (
-    <div className="backdrop" onClick={onClick || null}>
+    <div className="backdrop" onClick={onClickHandler || null}>
       {children}
     </div>
   );

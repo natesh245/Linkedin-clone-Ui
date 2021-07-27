@@ -1,10 +1,15 @@
+import React, { useState } from "react";
 import Card from "../../Card/Card";
 import Avatar from "../../Avatar/Avatar";
 import CurveButton from "../../Button/CurveButton/CurveButton";
+import CreateIcon from "@material-ui/icons/Create";
+import Dialog from "../../Dialog/Dialog";
+import EditIntro from "./EditIntro/EditIntro";
 
 import "./ProfileMain.css";
 
 function ProfileMain() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   return (
     // <div className="profile-main">
     <Card width="100%" height="100%">
@@ -27,6 +32,17 @@ function ProfileMain() {
         />
       </div>
       <div className="profile-main__details">
+        <CreateIcon
+          style={{ position: "absolute", right: 10, top: -60 }}
+          onClick={() => setIsDialogOpen(true)}
+        />
+        <Dialog
+          title="Edit Intro"
+          isOpen={isDialogOpen}
+          setIsDialogOpen={setIsDialogOpen}
+        >
+          <EditIntro />
+        </Dialog>
         <div class="pm-left">
           <h2>Natesh</h2>
           <div>Software Engineer at SLK</div>
