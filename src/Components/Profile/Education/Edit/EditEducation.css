@@ -1,0 +1,62 @@
+.edit-edu {
+  width: 100%;
+  padding: 1rem;
+}
+
+.edit-edu div.name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.start-date-container .start-date,
+.end-date-container .end-date {
+  display: flex;
+
+  justify-content: flex-start;
+}
+
+.edit-edu label {
+  color: gray;
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.edit-edu input {
+  width: 100%;
+
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  outline: none;
+}
+
+.start-date input,
+.end-date input {
+  width: 50%;
+  margin-right: 20px;
+}
+
+.edit-edu input:focus {
+  outline: auto;
+}
+
+.description,
+.activity-and-societies {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.description textarea,
+.activity-and-societies textarea {
+  /* position: absolute;
+    top: 10;
+    left: 0; */
+  resize: none;
+  width: 100%;
+  height: 100%;
+}
+
+.edit-edu div {
+  margin: 1rem 0;
+}

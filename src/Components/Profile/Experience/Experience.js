@@ -1,7 +1,10 @@
 import "./Experience.css";
+import React, { useState } from "react";
 
 import AddIcon from "@material-ui/icons/Add";
 import CreateIcon from "@material-ui/icons/Create";
+import Dialog from "../../Dialog/Dialog";
+import EditExperience from "./EditExperience/EditExperience";
 
 const experience = [
   {
@@ -55,11 +58,20 @@ const experience = [
 ];
 
 function Experience() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   return (
     <div className="profile-experience">
       <div className="experience-heading">
         <h2>Experience</h2>
-        <AddIcon />
+        <AddIcon onClick={() => setIsDialogOpen(true)} />
+
+        <Dialog
+          title="Edit Experience"
+          isOpen={isDialogOpen}
+          setIsDialogOpen={setIsDialogOpen}
+        >
+          <EditExperience />
+        </Dialog>
       </div>
       <div className="experience-content">
         {experience.map((exp) => {

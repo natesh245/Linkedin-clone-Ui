@@ -1,6 +1,9 @@
+import React, { useState } from "react";
 import "./Education.css";
 import AddIcon from "@material-ui/icons/Add";
 import CreateIcon from "@material-ui/icons/Create";
+import Dialog from "../../Dialog/Dialog";
+import EditEducation from "./Edit/EditEducation";
 
 const education = [
   {
@@ -15,11 +18,20 @@ const education = [
 ];
 
 function Education() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   return (
     <div className="profile-education">
       <div className="education-heading">
         <h2>Education</h2>
-        <AddIcon />
+        <AddIcon onClick={() => setIsDialogOpen(true)} />
+
+        <Dialog
+          title="Edit Education"
+          isOpen={isDialogOpen}
+          setIsDialogOpen={setIsDialogOpen}
+        >
+          <EditEducation />
+        </Dialog>
       </div>
       <div className="education-content">
         {education.map((edu) => {
