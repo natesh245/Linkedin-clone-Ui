@@ -16,3 +16,27 @@
 .profile__right {
   width: 28%;
 }
+
+@media screen and (max-width: 970px) {
+  .profile {
+    justify-content: center;
+    padding: 2rem 5px;
+  }
+  .profile__left {
+    margin-right: 10px;
+  }
+  .profile__right {
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .profile {
+    flex-direction: column;
+  }
+  .profile__left {
+    width: 100%;
+  }
+  .profile__right {
+    width: 100%;
+  }
+}

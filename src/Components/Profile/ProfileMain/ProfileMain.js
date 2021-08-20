@@ -5,6 +5,7 @@ import CurveButton from "../../Button/CurveButton/CurveButton";
 import CreateIcon from "@material-ui/icons/Create";
 import Dialog from "../../Dialog/Dialog";
 import EditIntro from "./EditIntro/EditIntro";
+import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 
 import "./ProfileMain.css";
 
@@ -46,6 +47,10 @@ function ProfileMain() {
         <div class="pm-left">
           <h2>Natesh</h2>
           <div>Software Engineer at SLK</div>
+          <div className="profile-com-edu">
+            <span>SLK .</span>
+            <span>Sahyadri college of engineering and management</span>
+          </div>
           <div className="profile-place-info">
             <span>Karnataka, India</span>
             <span className="profile-contact-info">
@@ -84,7 +89,21 @@ function ProfileMain() {
       <div className="profile-button-group">
         <CurveButton title="Open to" color="blue" />
         <CurveButton title="Add Section" color="white" />
-        <CurveButton title="More" color="white" />
+
+        <div className="more-btn">
+          <CurveButton title="More" color="white" />
+        </div>
+        <div className="more-icon">
+          <CurveButton
+            color="white"
+            Icon={MoreHorizIcon}
+            style={{
+              borderRadius: "50%",
+              border: "1px solid black",
+              padding: "5px",
+            }}
+          />
+        </div>
       </div>
     </Card>
     // </div>

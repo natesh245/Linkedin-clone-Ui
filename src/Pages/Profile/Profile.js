@@ -7,8 +7,6 @@ import Activity from "../../Components/Profile/Activity/Activity";
 import Experience from "../../Components/Profile/Experience/Experience";
 import Education from "../../Components/Profile/Education/Education";
 import Suggestion from "../../Components/Profile/Suggestion/Suggestion";
-import Dialog from "../../Components/Dialog/Dialog";
-import EditSummary from "../../Components/Profile/About/EditSummary/EditSummary";
 
 function Profile() {
   return (

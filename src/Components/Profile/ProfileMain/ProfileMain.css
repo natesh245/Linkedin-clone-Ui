@@ -78,3 +78,41 @@
   padding: 10px 2rem;
   justify-content: flex-start;
 }
+
+.profile-com-edu {
+  display: none;
+}
+
+.profile-com-edu span {
+  color: gray;
+}
+
+.more-icon {
+  display: none;
+}
+
+@media screen and (max-width: 650px) {
+  .profile-com-edu {
+    display: block;
+  }
+
+  .profile-avatar .avatar,
+  .profile-avatar .avatar img {
+    height: 100px !important;
+    width: 100px !important;
+  }
+
+  .pm-left {
+    margin-top: 10px;
+  }
+
+  .pm-right {
+    display: none;
+  }
+  .more-icon {
+    display: block;
+  }
+  .more-btn {
+    display: none;
+  }
+}
