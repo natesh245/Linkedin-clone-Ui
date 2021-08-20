@@ -1,4 +1,5 @@
-.edit-exp {
+.start-date-container,
+.end-date-container {
   width: 100%;
   padding: 1rem;
 }
@@ -10,7 +11,7 @@
   justify-content: flex-start;
 }
 
-.edit-exp label {
+label {
   color: gray;
   display: block;
   text-align: left;
@@ -30,26 +31,4 @@
 .end-date input {
   width: 50%;
   margin-right: 20px;
-}
-
-.edit-exp input:focus {
-  outline: auto;
-}
-
-.description {
-  position: relative;
-  margin: 1rem 0;
-}
-
-.description textarea {
-  /* position: absolute;
-      top: 10;
-      left: 0; */
-  resize: none;
-  width: 100%;
-  height: 100%;
-}
-
-.edit-exp div {
-  margin: 1rem 0;
 }

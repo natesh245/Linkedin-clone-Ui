@@ -82,17 +82,9 @@ function ProfileMain() {
         </div>
       </div>
       <div className="profile-button-group">
-        <CurveButton
-          title="Open to"
-          style={{
-            border: "none",
-            backgroundColor: "#0A66C2",
-            color: "white",
-            fontWeight: "bold",
-          }}
-        />
-        <CurveButton title="Add Section" />
-        <CurveButton title="More" />
+        <CurveButton title="Open to" color="blue" />
+        <CurveButton title="Add Section" color="white" />
+        <CurveButton title="More" color="white" />
       </div>
     </Card>
     // </div>

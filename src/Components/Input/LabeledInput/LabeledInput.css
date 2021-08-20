@@ -1,0 +1,20 @@
+.labeled-input {
+  width: 100%;
+  padding: 1rem;
+}
+
+.labeled-input label {
+  color: gray;
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.labeled-input input {
+  width: 100%;
+
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  outline: none;
+}

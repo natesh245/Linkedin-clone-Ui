@@ -1,33 +1,29 @@
 import React from "react";
 import "./EditEducation.css";
+import LabeledInput from "../../../Input/LabeledInput/LabeledInput";
+import LabeledTextArea from "../../../Input/LabeledTextArea/LabeledTextArea";
 
 function EditEducation(props) {
   return (
     <div className="edit-edu">
-      <div className="school">
-        <label htmlFor="schoolinput">School *</label>
-        <input
-          type="text"
-          id="school-input"
-          placeholder="Ex: Boston University"
-        ></input>
-      </div>
-      <div className="degree">
-        <label htmlFor="degree-input">Degree</label>
-        <input
-          type="text"
-          id="degree-input"
-          placeholder="Ex: Bachelor's"
-        ></input>
-      </div>
-      <div className="field-of-study">
-        <label htmlFor="field-of-study">Field Of Study</label>
-        <input
-          type="text"
-          id="field-of-study"
-          placeholder="Ex: Business"
-        ></input>
-      </div>
+      <LabeledInput
+        label="School"
+        value=""
+        onChange={null}
+        placeholder="Ex: Boston University"
+      />
+      <LabeledInput
+        label="Degree"
+        value=""
+        onChange={null}
+        placeholder="Ex: Bachelor's"
+      />
+      <LabeledInput
+        label="Field Of Study"
+        value=""
+        onChange={null}
+        placeholder="Ex: Business"
+      />
       <div className="start-date-container">
         <label htmlFor="start-date">Start Date</label>
         <div className="start-date">
@@ -42,25 +38,22 @@ function EditEducation(props) {
           <input type="text" id="end-year"></input>
         </div>
       </div>
+      <LabeledInput label="Grade" value="" onChange={null} placeholder="" />
 
-      <div className="grade">
-        <label htmlFor="grade-input">Grade </label>
-        <input id="grade-input" type="text"></input>
-      </div>
-      <div className="activity-and-societies">
-        <label htmlFor="activity-and-societies-input">
-          Activities And Societies
-        </label>
-        <textarea
-          id="activity-and-societies-input"
-          rows="1"
-          cols="60"
-        ></textarea>
-      </div>
-      <div className="description">
-        <label htmlFor="description-input">Description</label>
-        <textarea id="description-input" rows="1" cols="60"></textarea>
-      </div>
+      <LabeledTextArea
+        text=""
+        onChange={null}
+        label="Activities And Societies"
+        maxlength={500}
+        placeholder="Ex Alpa Phi Omega, Marching Band, Volley Ball"
+      />
+
+      <LabeledTextArea
+        text=""
+        onChange={null}
+        label="Description"
+        maxlength={500}
+      />
     </div>
   );
 }

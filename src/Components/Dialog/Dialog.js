@@ -19,7 +19,7 @@ function Dialog({ children, title, customAction, isOpen, setIsDialogOpen }) {
           <div>{customAction}</div>
 
           <div>
-            <CurveButton title="Save" />
+            <CurveButton title="Save" color="blue" />
           </div>
         </div>
       </div>

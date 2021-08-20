@@ -1,44 +1,56 @@
 import "./EditIntro.css";
+import LabeledInput from "../../../Input/LabeledInput/LabeledInput";
 
 function EditIntro() {
   return (
     <div className="edit-intro">
-      <div className="name">
-        <div className="first-name">
-          <label htmlFor="firt-name-input">First Name *</label>
-          <input type="text" id="first-name-input"></input>
-        </div>
-        <div className="last-name">
-          <label htmlFor="last-name-input">Last Name *</label>
-          <input type="text" id="last-name-input"></input>
-        </div>
-      </div>
+      <LabeledInput
+        value=""
+        onChange={null}
+        label="First Name"
+        isRequired={true}
+      />
+      <LabeledInput
+        value=""
+        onChange={null}
+        label="Last Name"
+        isRequired={true}
+      />
+
       <div className="headline">
         <label htmlFor="headline-input">Headline *</label>
         <textarea id="headline-input" rows="1" cols="60"></textarea>
       </div>
-      <div className="current-position">
-        <label htmlFor="current-position-input">Current Position </label>
-        <input id="current-position-input" type="text"></input>
-      </div>
-      <div className="education">
-        <label htmlFor="education-input">Education </label>
-        <input id="education-input" type="text"></input>
-      </div>
-      <div className="country">
-        <label htmlFor="country-input">Country/ Region </label>
-        <input id="country-input" type="text"></input>
-      </div>
-      <div className="location">
-        <label htmlFor="location-input">
-          Location in this Country/ Region{" "}
-        </label>
-        <input id="location-input" type="text"></input>
-      </div>
-      <div className="industry">
-        <label htmlFor="industry-input">Industry </label>
-        <input id="industry-input" type="text"></input>
-      </div>
+      <LabeledInput
+        value=""
+        onChange={null}
+        label="Current Position"
+        isRequired={true}
+      />
+      <LabeledInput
+        value=""
+        onChange={null}
+        label="Education"
+        isRequired={true}
+      />
+      <LabeledInput
+        value=""
+        onChange={null}
+        label="Country/ Region"
+        isRequired={true}
+      />
+      <LabeledInput
+        value=""
+        onChange={null}
+        label="Location in this country/Region"
+        isRequired={true}
+      />
+      <LabeledInput
+        value=""
+        onChange={null}
+        label="Industry"
+        isRequired={true}
+      />
     </div>
   );
 }

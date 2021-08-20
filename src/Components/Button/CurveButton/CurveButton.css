@@ -1,15 +1,28 @@
 .curve-button {
   border-radius: 20px;
-  padding: 8px 15px;
+  padding: 0.5em 1em;
   font-size: 1rem;
-  font-weight: bold;
-  background-color: white;
-  border: 1px solid rgb(20, 20, 20);
-  color: gray;
-  margin-right: 10px;
+
+  margin-right: 1em;
 }
 
-.curve-button:hover {
-  border: 1px solid rgb(0, 0, 0);
-  background-color: rgb(228, 226, 226);
+.blue-btn {
+  border: none;
+  background-color: #0167ce;
+  color: white;
+  font-weight: bold;
+}
+
+.blue-btn:hover {
+  background-color: #0857a7;
+}
+
+.white-btn {
+  background-color: white;
+  color: gray;
+  border: 1px solid gray;
+}
+
+.white-btn:hover {
+  background-color: rgb(212, 212, 212);
 }

@@ -12,7 +12,7 @@ function People({ avatarUrl, name, desc }) {
           <p>{desc}</p>
         </div>
       </div>
-      <CurveButton title="connect" />
+      <CurveButton title="connect" color="blue" />
     </div>
   );
 }

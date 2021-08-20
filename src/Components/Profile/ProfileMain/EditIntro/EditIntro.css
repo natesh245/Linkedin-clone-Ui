@@ -1,47 +1,13 @@
-.edit-intro {
+.headline {
   width: 100%;
   padding: 1rem;
 }
 
-.edit-intro div.name {
-  display: flex;
-  justify-content: space-between;
-}
-
-.first-name,
-.last-name {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.edit-intro label {
+.headline label {
   color: gray;
   display: block;
   text-align: left;
   margin-bottom: 5px;
-}
-
-.edit-intro input {
-  width: 100%;
-
-  padding: 0.5rem;
-  border-radius: 5px;
-  border: 1px solid black;
-  outline: none;
-}
-.name input {
-  width: 90%;
-}
-
-.edit-intro input:focus {
-  outline: auto;
-}
-
-.headline {
-  position: relative;
-  margin: 1rem 0;
 }
 
 .headline textarea {
@@ -51,8 +17,4 @@
   resize: none;
   width: 100%;
   height: 100%;
-}
-
-.edit-intro div {
-  margin: 1rem 0;
 }

@@ -1,41 +1,36 @@
 import React from "react";
+import LabeledInput from "../../../Input/LabeledInput/LabeledInput";
+import LabeledTextArea from "../../../Input/LabeledTextArea/LabeledTextArea";
 import "./EditExperience.css";
 
 function EditExperience(props) {
   return (
     <div className="edit-exp">
-      <div className="title">
-        <label htmlFor="title-input">Title *</label>
-        <input
-          type="text"
-          id="title-input"
-          placeholder="Ex: Retail Sales Manager"
-        ></input>
-      </div>
-      <div className="employment-type">
-        <label htmlFor="employment-type-input">Employment Type</label>
-        <input
-          type="text"
-          id="employment-type-input"
-          placeholder="Ex: Full time"
-        ></input>
-      </div>
-      <div className="company-name">
-        <label htmlFor="company-name">Company Name</label>
-        <input
-          type="text"
-          id="company-name"
-          placeholder="Ex: Microsoft"
-        ></input>
-      </div>
-      <div className="location">
-        <label htmlFor="location">Location</label>
-        <input
-          type="text"
-          id="location"
-          placeholder="Ex: London, United Kingdom"
-        ></input>
-      </div>
+      <LabeledInput
+        value={""}
+        onChange={null}
+        placeholder={"Ex: Retail Sales Manager"}
+        label="Title"
+      />
+      <LabeledInput
+        value={""}
+        onChange={null}
+        placeholder={"Ex: Full time"}
+        label="Employment Type"
+      />
+      <LabeledInput
+        value={""}
+        onChange={null}
+        placeholder={"Ex: Microsoft"}
+        label="Company Name"
+      />
+      <LabeledInput
+        value={""}
+        onChange={null}
+        placeholder={"Ex: London, United Kingdom"}
+        label="Location"
+      />
+
       <div className="start-date-container">
         <label htmlFor="start-date">Start Date</label>
         <div className="start-date">
@@ -50,20 +45,19 @@ function EditExperience(props) {
           <input type="text" id="end-year"></input>
         </div>
       </div>
+      <LabeledInput
+        value={""}
+        onChange={null}
+        placeholder={""}
+        label="Headline"
+      />
 
-      <div className="headline">
-        <label htmlFor="headline-input">Headline</label>
-        <input id="headline-input" type="text"></input>
-      </div>
-      <div className="industry">
-        <label htmlFor="industry-input">Industry</label>
-        <input id="industry-input" type="text"></input>
-      </div>
-
-      <div className="description">
-        <label htmlFor="description-input">Description</label>
-        <textarea id="description-input" rows="1" cols="60"></textarea>
-      </div>
+      <LabeledTextArea
+        text={""}
+        onChange={null}
+        label="Description"
+        maxlength={2000}
+      />
     </div>
   );
 }
