@@ -1,7 +1,18 @@
 import React from "react";
+import LabeledDropDown from "../../../Input/LabeledDropDown/LabeledDropDown";
 import LabeledInput from "../../../Input/LabeledInput/LabeledInput";
 import LabeledTextArea from "../../../Input/LabeledTextArea/LabeledTextArea";
+
 import "./EditExperience.css";
+
+const empTypeOptions = [
+  "Please select",
+  "Full time",
+  "Part time",
+  "self employed",
+  "Freelance",
+  "Trainee",
+];
 
 function EditExperience(props) {
   return (
@@ -12,11 +23,12 @@ function EditExperience(props) {
         placeholder={"Ex: Retail Sales Manager"}
         label="Title"
       />
-      <LabeledInput
-        value={""}
+
+      <LabeledDropDown
+        value=""
         onChange={null}
-        placeholder={"Ex: Full time"}
         label="Employment Type"
+        options={empTypeOptions}
       />
       <LabeledInput
         value={""}

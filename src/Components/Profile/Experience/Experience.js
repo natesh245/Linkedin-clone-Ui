@@ -59,14 +59,20 @@ const experience = [
 
 function Experience() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [dialogTitle, setDialogTitle] = useState(null);
   return (
     <div className="profile-experience">
       <div className="experience-heading">
         <h2>Experience</h2>
-        <AddIcon onClick={() => setIsDialogOpen(true)} />
+        <AddIcon
+          onClick={() => {
+            setIsDialogOpen(true);
+            setDialogTitle("Add Experience");
+          }}
+        />
 
         <Dialog
-          title="Edit Experience"
+          title={dialogTitle}
           isOpen={isDialogOpen}
           setIsDialogOpen={setIsDialogOpen}
         >
@@ -89,7 +95,12 @@ function Experience() {
                   return (
                     <div className="position-content">
                       <div className="edit-icon">
-                        <CreateIcon />
+                        <CreateIcon
+                          onClick={() => {
+                            setIsDialogOpen(true);
+                            setDialogTitle("Edit Experience");
+                          }}
+                        />
                       </div>
                       <span className="bullet-point"></span>
                       <h6>{position.name}</h6>

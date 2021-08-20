@@ -19,14 +19,20 @@ const education = [
 
 function Education() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [dialogTitle, setDialogTitle] = useState(null);
   return (
     <div className="profile-education">
       <div className="education-heading">
         <h2>Education</h2>
-        <AddIcon onClick={() => setIsDialogOpen(true)} />
+        <AddIcon
+          onClick={() => {
+            setIsDialogOpen(true);
+            setDialogTitle("Add Education");
+          }}
+        />
 
         <Dialog
-          title="Edit Education"
+          title={dialogTitle}
           isOpen={isDialogOpen}
           setIsDialogOpen={setIsDialogOpen}
         >
@@ -38,7 +44,12 @@ function Education() {
           return (
             <div className="education-list">
               <div className="edit-icon">
-                <CreateIcon />
+                <CreateIcon
+                  onClick={() => {
+                    setIsDialogOpen(true);
+                    setDialogTitle("Edit Education");
+                  }}
+                />
               </div>
               <img src={edu.schoolImage} alt={edu.school} />
               <div className="education-info">

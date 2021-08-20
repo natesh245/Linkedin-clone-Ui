@@ -1,7 +1,8 @@
 import "./Dialog.css";
 
 import CurveButton from "../Button/CurveButton/CurveButton";
-import { useState } from "react";
+
+import CloseIcon from "@material-ui/icons/Close";
 
 import BackDrop from "../../Components/BackDrop/BackDrop";
 function Dialog({ children, title, customAction, isOpen, setIsDialogOpen }) {
@@ -12,7 +13,7 @@ function Dialog({ children, title, customAction, isOpen, setIsDialogOpen }) {
       <div className="dialog" onClick={(event) => event.stopPropagation()}>
         <div className="dialog__header">
           <h2>{title}</h2>
-          <h2 onClick={() => setIsDialogOpen(false)}>X</h2>
+          <CloseIcon onClick={() => setIsDialogOpen(false)} />
         </div>
         <div className="dialog__content">{children}</div>
         <div className="dialog__footer">
