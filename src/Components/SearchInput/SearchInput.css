@@ -6,9 +6,21 @@
   background-color: #eef3f8;
   color: gray;
 }
+.header-search-option {
+  display: none;
+}
 
 .search-input input {
   outline: none;
   border: none;
   background-color: transparent;
+}
+
+@media screen and (max-width: 998px) {
+  .search-input {
+    display: none;
+  }
+  .header-search-option {
+    display: block;
+  }
 }

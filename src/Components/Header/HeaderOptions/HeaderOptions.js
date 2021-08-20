@@ -5,6 +5,7 @@ import BusinessCenterIcon from "@material-ui/icons/BusinessCenter";
 import SmsIcon from "@material-ui/icons/Sms";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import AppsIcon from "@material-ui/icons/Apps";
+import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 
 import "./HeaderOptions.css";
 
@@ -23,14 +24,20 @@ function HeaderOptions() {
         }
         option={true}
       />
-      <HeaderOption
-        title="Work"
-        Icon={AppsIcon}
-        option={true}
-        style={{ borderLeft: "1px solid lightgray", paddingLeft: "15px" }}
-      />
-      <div className="header-option__link">
-        <a href="">Try Premium Free For 1 month</a>
+      <div className="more-icon">
+        <HeaderOption Icon={MoreHorizIcon} />
+      </div>
+
+      <div className="header-app-options">
+        <HeaderOption
+          title="Work"
+          Icon={AppsIcon}
+          option={true}
+          style={{ borderLeft: "1px solid lightgray" }}
+        />
+        <div className="header-option__link">
+          <a href="">Try Premium Free For 1 month</a>
+        </div>
       </div>
     </div>
   );

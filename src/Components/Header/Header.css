@@ -23,8 +23,17 @@
 }
 
 .header__right {
-  width: 50%;
-  display: flex;
-  /* justify-content: space-between; */
-  align-items: center;
+  width: 60%;
+}
+
+@media screen and (max-width: 1255px) {
+  .header__right {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 998px) {
+  .header__right {
+    width: 80%;
+  }
 }

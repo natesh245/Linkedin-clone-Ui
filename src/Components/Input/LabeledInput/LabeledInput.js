@@ -7,7 +7,7 @@ function LabeledInput({ label, value, onChange, isRequired, placeholder }) {
       <input
         type="text"
         id="labeled-input-input"
-        value={value}
+        // value={value}
         onChange={onChange}
         placeholder={placeholder}
       ></input>

@@ -6,7 +6,7 @@ function LabeledDropDown({ label, options, value, onChange }) {
       <select
         name="labeled-dropdown-select"
         id="labeled-dropdown-select"
-        value={value}
+        // value={value}
         onChange={onChange}
       >
         {options.map((option) => {

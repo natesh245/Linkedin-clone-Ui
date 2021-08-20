@@ -1,6 +1,24 @@
 .header-options {
   display: flex;
-  /* width: auto; */
+  /* width: 100%; */
   justify-content: flex-start;
   align-items: center;
+}
+
+.header-app-options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.more-icon {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  .header-app-options {
+    display: none;
+  }
+  .more-icon {
+    display: block;
+  }
 }
