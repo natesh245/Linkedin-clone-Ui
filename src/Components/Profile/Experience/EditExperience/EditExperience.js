@@ -1,4 +1,5 @@
 import React from "react";
+import MonthYear from "../../../Input/DatePicker/MonthYearPicker/MonthYear";
 import LabeledDropDown from "../../../Input/LabeledDropDown/LabeledDropDown";
 import LabeledInput from "../../../Input/LabeledInput/LabeledInput";
 import LabeledTextArea from "../../../Input/LabeledTextArea/LabeledTextArea";
@@ -43,20 +44,8 @@ function EditExperience(props) {
         label="Location"
       />
 
-      <div className="start-date-container">
-        <label htmlFor="start-date">Start Date</label>
-        <div className="start-date">
-          <input type="text" id="start-month"></input>
-          <input type="text" id="start-year"></input>
-        </div>
-      </div>
-      <div className="end-date-container">
-        <label htmlFor="end-date">End Date</label>
-        <div className="end-date">
-          <input type="text" id="end-month"></input>
-          <input type="text" id="end-year"></input>
-        </div>
-      </div>
+      <MonthYear label="Start Date" onChange={null} />
+      <MonthYear label="End Date" onChange={null} />
       <LabeledInput
         value={""}
         onChange={null}

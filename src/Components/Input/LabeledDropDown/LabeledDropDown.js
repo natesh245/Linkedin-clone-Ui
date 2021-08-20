@@ -2,7 +2,7 @@ import "./LabeledDropDown.css";
 function LabeledDropDown({ label, options, value, onChange }) {
   return (
     <div className="labeled-dropdown">
-      <label htmlFor="labeled-dropdown-select">{label}</label>
+      {label && <label htmlFor="labeled-dropdown-select">{label}</label>}
       <select
         name="labeled-dropdown-select"
         id="labeled-dropdown-select"
