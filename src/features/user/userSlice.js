@@ -3,23 +3,29 @@ import axios from "../../api/";
 
 const user = JSON.parse(localStorage.getItem("user"));
 
-export const registerUser = createAsyncThunk("user/registerUser", async () => {
-  const response = await axios.post("/user/register", {
-    first_name: "natesh",
-    last_name: "m",
-    email_id: "test246@gmail.com",
-    password: "test246",
-  });
-  return response.data;
-});
+export const registerUser = createAsyncThunk(
+  "user/registerUser",
+  async (registerData) => {
+    const response = await axios.post("/user/register", {
+      first_name: "natesh",
+      last_name: "m",
+      email_id: "test246@gmail.com",
+      password: "test246",
+    });
+    return response.data;
+  }
+);
 
-export const loginUser = createAsyncThunk("user/loginUser", async () => {
-  const response = await axios.post("/user/login", {
-    email_id: "test246@gmail.com",
-    password: "test246",
-  });
-  return response.data;
-});
+export const loginUser = createAsyncThunk(
+  "user/loginUser",
+  async (loginData) => {
+    const response = await axios.post("/user/login", {
+      email_id: "test246@gmail.com",
+      password: "test246",
+    });
+    return response.data;
+  }
+);
 
 const initialState = user
   ? {
