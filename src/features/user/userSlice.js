@@ -7,10 +7,7 @@ export const registerUser = createAsyncThunk(
   "user/registerUser",
   async (registerData) => {
     const response = await axios.post("/user/register", {
-      first_name: "natesh",
-      last_name: "m",
-      email_id: "test246@gmail.com",
-      password: "test246",
+      ...registerData,
     });
     return response.data;
   }
@@ -20,8 +17,7 @@ export const loginUser = createAsyncThunk(
   "user/loginUser",
   async (loginData) => {
     const response = await axios.post("/user/login", {
-      email_id: "test246@gmail.com",
-      password: "test246",
+      ...loginData,
     });
     return response.data;
   }
