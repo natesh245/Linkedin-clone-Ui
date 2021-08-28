@@ -38,6 +38,7 @@ function Login() {
           onChange={(event) => setPassword(event.target.value)}
           label="Password"
           isRequired={true}
+          type={"password"}
         />
         <CurvedButton title="Login in" color="blue" type="submit" />
         <Link to="/auth/register" style={{ display: "block" }}>
