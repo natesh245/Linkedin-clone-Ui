@@ -1,9 +1,9 @@
 import Avatar from "../../../Avatar/Avatar";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import "./HeaderOption.css";
-function HeaderOption({ Icon, title, avatarUrl, option, style }) {
+function HeaderOption({ Icon, title, avatarUrl, option, style, onClick }) {
   return (
-    <div className="header-option" style={style}>
+    <div className="header-option" style={style} onClick={onClick}>
       {Icon && (
         <Icon
           className="header-option__icon"
