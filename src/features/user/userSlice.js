@@ -9,7 +9,7 @@ export const registerUser = createAsyncThunk(
     const response = await axios.post("/user/register", {
       ...registerData,
     });
-    return response.data;
+    return response;
   }
 );
 
@@ -19,7 +19,7 @@ export const loginUser = createAsyncThunk(
     const response = await axios.post("/user/login", {
       ...loginData,
     });
-    return response.data;
+    return response;
   }
 );
 
@@ -46,16 +46,29 @@ export const userSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(registerUser.fulfilled, (state, action) => {
-        const user = action.payload.data;
-        localStorage.setItem("user", JSON.stringify(user));
-        state.isLoggedIn = true;
-        state.user = user;
+        const { data, message } = action.payload.data;
+        if (!data) alert(message);
+        else {
+          localStorage.setItem("user", JSON.stringify(data));
+          state.isLoggedIn = true;
+          state.user = data;
+        }
+      })
+      .addCase(registerUser.rejected, (state, action) => {
+        alert(action.error.message);
       })
       .addCase(loginUser.fulfilled, (state, action) => {
-        const user = action.payload.data;
-        localStorage.setItem("user", JSON.stringify(user));
-        state.isLoggedIn = true;
-        state.user = user;
+        const { data, message } = action.payload.data;
+
+        if (!data) alert(message);
+        else {
+          localStorage.setItem("user", JSON.stringify(data));
+          state.isLoggedIn = true;
+          state.user = data;
+        }
+      })
+      .addCase(loginUser.rejected, (state, action) => {
+        alert(action.error.message);
       });
   },
 });

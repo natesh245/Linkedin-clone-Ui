@@ -3,18 +3,22 @@ import "./App.css";
 import Profile from "./Pages/Profile/Profile";
 
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "./features/user/userSlice";
-import { Switch, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+import { Switch, Route, useHistory } from "react-router-dom";
 import Login from "./Components/Auth/Login/Login";
 import Register from "./Components/Auth/Register/Register";
 
 function App() {
-  const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
-  // useEffect(() => {
-  //   dispatch(loginUser());
-  // }, []);
+  const history = useHistory();
+  useEffect(() => {
+    if (isLoggedIn) {
+      history.push("/user/profile");
+    } else {
+      history.push("/auth/login");
+    }
+  }, [isLoggedIn, history]);
   return (
     <div className="App">
       {isLoggedIn && <Header />}
