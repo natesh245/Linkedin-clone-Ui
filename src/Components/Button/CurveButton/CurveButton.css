@@ -26,3 +26,14 @@
 .white-btn:hover {
   background-color: rgb(212, 212, 212);
 }
+
+.blue-white-btn {
+  background-color: white;
+  border: 1px solid #a6cee4;
+  color: #a6cee4;
+}
+
+.blue-white-btn:hover {
+  background-color: white;
+  border: 1.5px solid #5188a5;
+}
