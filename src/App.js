@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { Switch, Route, useHistory } from "react-router-dom";
 import Login from "./Components/Auth/Login/Login";
 import Register from "./Components/Auth/Register/Register";
+import Snackbar from "./Components/Common/FeedBack/Snackbar/Snackbar";
 
 function App() {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
@@ -22,6 +23,7 @@ function App() {
   return (
     <div className="App">
       {isLoggedIn && <Header />}
+
       <div className="App-body">
         <Switch>
           <Route path="/" exact component={null} />
@@ -30,6 +32,7 @@ function App() {
           <Route path="/user/profile" exact component={Profile} />
         </Switch>
       </div>
+      <Snackbar />
     </div>
   );
 }

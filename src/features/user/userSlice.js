@@ -1,25 +1,53 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../../api/";
 
+import { setIsLoading, setSnackBar } from "../feedback/feedbackSlice";
+
 const user = JSON.parse(localStorage.getItem("user"));
 
 export const registerUser = createAsyncThunk(
   "user/registerUser",
-  async (registerData) => {
-    const response = await axios.post("/user/register", {
-      ...registerData,
-    });
-    return response;
+  async (registerData, thunkAPI) => {
+    try {
+      thunkAPI.dispatch(setIsLoading(true));
+      const response = await axios.post("/user/register", {
+        ...registerData,
+      });
+      if (response) thunkAPI.dispatch(setIsLoading(false));
+      return response;
+    } catch (error) {
+      thunkAPI.dispatch(
+        setSnackBar({
+          isOpen: true,
+          type: "error",
+          message: JSON.stringify(error),
+        })
+      );
+      return error;
+    }
   }
 );
 
 export const loginUser = createAsyncThunk(
   "user/loginUser",
-  async (loginData) => {
-    const response = await axios.post("/user/login", {
-      ...loginData,
-    });
-    return response;
+  async (loginData, thunkAPI) => {
+    try {
+      thunkAPI.dispatch(setIsLoading(true));
+      const response = await axios.post("/user/login", {
+        ...loginData,
+      });
+      if (response) thunkAPI.dispatch(setIsLoading(false));
+      return response;
+    } catch (error) {
+      thunkAPI.dispatch(
+        setSnackBar({
+          isOpen: true,
+          type: "error",
+          message: error.message,
+        })
+      );
+      return Promise.reject(error);
+    }
   }
 );
 
@@ -54,22 +82,21 @@ export const userSlice = createSlice({
           state.user = data;
         }
       })
-      .addCase(registerUser.rejected, (state, action) => {
-        alert(action.error.message);
-      })
+      // .addCase(registerUser.rejected, (state, action) => {
+      //   alert(action.error.message);
+      // })
       .addCase(loginUser.fulfilled, (state, action) => {
         const { data, message } = action.payload.data;
-
         if (!data) alert(message);
         else {
           localStorage.setItem("user", JSON.stringify(data));
           state.isLoggedIn = true;
           state.user = data;
         }
-      })
-      .addCase(loginUser.rejected, (state, action) => {
-        alert(action.error.message);
       });
+    // .addCase(loginUser.rejected, (state, action) => {
+    //   alert(action.error.message);
+    // });
   },
 });
 
