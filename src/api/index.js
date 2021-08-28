@@ -1,5 +1,6 @@
 import axios from "axios";
 
+import { logOutUser } from "../features/user/userSlice";
 const user = JSON.parse(localStorage.getItem("user"));
 
 const axiosInstance = axios.create({
@@ -8,19 +9,21 @@ const axiosInstance = axios.create({
   headers: { Authorization: user?.token },
 });
 
-axiosInstance.interceptors.response.use(
-  (response) => {
-    if (response.status >= 400) {
-      console.log(response);
+export const interceptors = (store) => {
+  axiosInstance.interceptors.response.use(
+    (response) => {
+      return response;
+    },
+    (error) => {
+      if (error.response && error.response.data) {
+        if (error.response.status === 401) {
+          store.dispatch(logOutUser());
+        }
+        return Promise.reject(error.response.data);
+      }
+      return Promise.reject(error.message);
     }
-    return response;
-  },
-  (error) => {
-    if (error.response && error.response.data) {
-      return Promise.reject(error.response.data);
-    }
-    return Promise.reject(error.message);
-  }
-);
+  );
+};
 
 export default axiosInstance;
