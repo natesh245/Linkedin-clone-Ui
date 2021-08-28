@@ -39,6 +39,7 @@ export const loginUser = createAsyncThunk(
       if (response) thunkAPI.dispatch(setIsLoading(false));
       return response;
     } catch (error) {
+      if (error.status === 401) thunkAPI.dispatch(logOutUser());
       thunkAPI.dispatch(
         setSnackBar({
           isOpen: true,

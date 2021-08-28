@@ -3,16 +3,21 @@ import "./App.css";
 import Profile from "./Pages/Profile/Profile";
 
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route, useHistory, useLocation } from "react-router-dom";
+import { logOutUser } from "./features/user/userSlice";
 import Login from "./Components/Auth/Login/Login";
 import Register from "./Components/Auth/Register/Register";
 import Snackbar from "./Components/Common/FeedBack/Snackbar/Snackbar";
+import jwt_decode from "jwt-decode";
 
 function App() {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+  const user = useSelector((state) => state.user.user);
   const history = useHistory();
+  const dispatch = useDispatch();
+  const location = useLocation();
   useEffect(() => {
     if (isLoggedIn) {
       history.push("/user/profile");
@@ -20,6 +25,15 @@ function App() {
       history.push("/auth/login");
     }
   }, [isLoggedIn, history]);
+
+  useEffect(() => {
+    if (user) {
+      const decodedToken = jwt_decode(user.token);
+      if (Date.now() >= decodedToken.exp * 1000) {
+        dispatch(logOutUser());
+      }
+    }
+  }, [location, user, dispatch]);
   return (
     <div className="App">
       {isLoggedIn && <Header />}
