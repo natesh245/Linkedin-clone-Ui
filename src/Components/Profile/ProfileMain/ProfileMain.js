@@ -125,14 +125,16 @@ function ProfileMain() {
           <EditIntro />
         </Dialog>
         <div class="pm-left">
-          <h2>Natesh</h2>
-          <div>Software Engineer at SLK</div>
+          <h2>{user.first_name + " " + user.last_name}</h2>
+          <div>{selectedProfile.headline}</div>
           <div className="profile-com-edu">
             <span>SLK .</span>
             <span>Sahyadri college of engineering and management</span>
           </div>
           <div className="profile-place-info">
-            <span>Karnataka, India</span>
+            <span>
+              {`${selectedProfile.location}, ${selectedProfile.country}`}
+            </span>
             <span className="profile-contact-info">
               <a href="">Contact Info</a>
             </span>

@@ -1,4 +1,5 @@
 import "./EditIntro.css";
+import { useEffect } from "react";
 import LabeledInput from "../../../Input/LabeledInput/LabeledInput";
 import LabeledDropDown from "../../../Input/LabeledDropDown/LabeledDropDown";
 
@@ -179,6 +180,12 @@ function EditIntro() {
       })
     );
   };
+
+  useEffect(() => {
+    return () => {
+      dispatch(setSelectedProfileIntro(null));
+    };
+  }, []);
 
   return (
     <div className="edit-intro">

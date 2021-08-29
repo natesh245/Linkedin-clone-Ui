@@ -11,6 +11,7 @@ function LabeledTextArea({ text, onChange, label, maxlength, placeholder }) {
           maxlength={maxlength}
           onChange={onChange}
           placeholder={placeholder}
+          // value={text || ""}
         >
           {text}
         </textarea>
