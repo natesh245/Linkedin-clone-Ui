@@ -41,13 +41,16 @@ function Education() {
   const handleSave = () => {
     if (selectedProfileEducation) {
       if (selectedProfile) {
+        const education = selectedProfile?.education || [];
         dispatch(
           updateProfileByProfileId({
             profileId: selectedProfile._id,
             body: {
               education: [
                 selectedProfileEducation,
-                ...selectedProfile?.education,
+                ...education.filter(
+                  (edu) => edu._id !== selectedProfileEducation._id
+                ),
               ],
             },
           })
@@ -86,13 +89,15 @@ function Education() {
       <div className="education-content">
         {education.length === 0 && <span>{"No education added"}</span>}
         {education.map((edu) => {
+          const id = edu._id;
           return (
-            <div className="education-list">
+            <div className="education-list" key={id}>
               <div className="edit-icon">
                 <CreateIcon
                   onClick={() => {
                     setIsDialogOpen(true);
                     setDialogTitle("Edit Education");
+                    dispatch(setSelectedProfileEducation(edu));
                   }}
                 />
               </div>

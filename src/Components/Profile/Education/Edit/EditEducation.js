@@ -114,7 +114,7 @@ function EditEducation(props) {
       />
 
       <LabeledTextArea
-        text={selectedProfileEducation?.decription || ""}
+        text={selectedProfileEducation?.description || ""}
         onChange={(event) => handleChange("description", event.target.value)}
         label="Description"
         maxlength={500}
