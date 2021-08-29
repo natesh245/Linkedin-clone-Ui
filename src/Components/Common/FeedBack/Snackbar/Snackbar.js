@@ -12,10 +12,12 @@ function Alert(props) {
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    position: "absolute",
     width: "100%",
     "& > * + *": {
       marginTop: theme.spacing(2),
     },
+    zIndex: 5000,
   },
 }));
 
