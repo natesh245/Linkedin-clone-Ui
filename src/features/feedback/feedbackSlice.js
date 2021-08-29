@@ -12,10 +12,11 @@ export const feedbackSlice = createSlice({
   initialState,
   reducers: {
     setIsLoading: (state, action) => {
-      state.isLoading = action.payload.isLoading;
+      state.isLoading = action.payload;
     },
     setSnackBar: (state, action) => {
       const { type, message, isOpen } = action.payload;
+
       state.type = type;
       state.message = message;
       state.isSnackbarOpen = isOpen;

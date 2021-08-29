@@ -28,16 +28,14 @@ export default function CustomizedSnackbars() {
   const dispatch = useDispatch();
 
   const onClose = () => {
-    dispatch(
-      setSnackBar({ type: "Success", message: "", isSnackbarOpen: false })
-    );
+    dispatch(setSnackBar({ type: "Success", message: "", isOpen: false }));
   };
 
   return (
     <div className={classes.root}>
       <Snackbar
         open={isOpen}
-        autoHideDuration={6000}
+        autoHideDuration={3000}
         onClose={onClose}
         anchorOrigin={{
           vertical: "bottom",
