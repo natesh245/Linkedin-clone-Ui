@@ -1,15 +1,18 @@
 import axios from "axios";
 
 import { logOutUser } from "../features/user/userSlice";
-const user = JSON.parse(localStorage.getItem("user"));
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:4000/api",
-
-  headers: { Authorization: user?.token },
 });
 
 export const interceptors = (store) => {
+  axiosInstance.interceptors.request.use(function (config) {
+    const token = store.getState().user?.user?.token;
+    if (token) config.headers.Authorization = `Bearer ${token}`;
+
+    return config;
+  });
   axiosInstance.interceptors.response.use(
     (response) => {
       return response;
