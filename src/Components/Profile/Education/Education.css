@@ -28,7 +28,7 @@
 .education-list {
   display: flex;
   position: relative;
-  margin: 1rem;
+  margin: 1rem 0;
 }
 
 .education-list img {

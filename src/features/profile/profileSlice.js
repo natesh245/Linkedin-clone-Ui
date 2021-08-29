@@ -166,7 +166,27 @@ export const profileSlice = createSlice({
       state.selectedProfileEducation = education;
     },
     setSelectedProfileExperience: (state, action) => {
-      state.selectedProfileExperience = action.payload;
+      let experience = action.payload || null;
+      if (action.payload === "new") {
+        experience = {
+          exp_id: "",
+          pos_id: "",
+          company_name: "",
+          title: "",
+          location: "",
+          employment_type: "",
+          description: "",
+          start_date: {
+            month: "",
+            year: "",
+          },
+          end_date: {
+            month: "",
+            year: "",
+          },
+        };
+      }
+      state.selectedProfileExperience = experience;
     },
     setSelectedProfileEditForm: (state, action) => {
       state.selectedProfileEditForm = action.payload;
