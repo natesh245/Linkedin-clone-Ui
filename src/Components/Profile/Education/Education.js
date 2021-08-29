@@ -5,6 +5,14 @@ import CreateIcon from "@material-ui/icons/Create";
 import Dialog from "../../Dialog/Dialog";
 import EditEducation from "./Edit/EditEducation";
 
+import { useSelector, useDispatch } from "react-redux";
+
+import {
+  setSelectedProfileEducation,
+  addProfileByUserId,
+  updateProfileByProfileId,
+} from "../../../features/profile/profileSlice";
+
 const education = [
   {
     school: "Sahyadri College of Engineering and Management",
@@ -20,6 +28,40 @@ const education = [
 function Education() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [dialogTitle, setDialogTitle] = useState(null);
+
+  const selectedProfile = useSelector((state) => state.profile.selectedProfile);
+  const selectedProfileEducation = useSelector(
+    (state) => state.profile.selectedProfileEducation
+  );
+  const user = useSelector((state) => state.user.user);
+
+  const dispatch = useDispatch();
+  const education = selectedProfile?.education || [];
+
+  const handleSave = () => {
+    if (selectedProfileEducation) {
+      if (selectedProfile) {
+        dispatch(
+          updateProfileByProfileId({
+            profileId: selectedProfile._id,
+            body: {
+              education: [
+                selectedProfileEducation,
+                ...selectedProfile?.education,
+              ],
+            },
+          })
+        );
+      } else
+        dispatch(
+          addProfileByUserId({
+            userId: user._id,
+            body: selectedProfileEducation,
+          })
+        );
+    }
+  };
+
   return (
     <div className="profile-education">
       <div className="education-heading">
@@ -28,6 +70,7 @@ function Education() {
           onClick={() => {
             setIsDialogOpen(true);
             setDialogTitle("Add Education");
+            dispatch(setSelectedProfileEducation("new"));
           }}
         />
 
@@ -35,11 +78,13 @@ function Education() {
           title={dialogTitle}
           isOpen={isDialogOpen}
           setIsDialogOpen={setIsDialogOpen}
+          onSave={handleSave}
         >
           <EditEducation />
         </Dialog>
       </div>
       <div className="education-content">
+        {education.length === 0 && <span>{"No education added"}</span>}
         {education.map((edu) => {
           return (
             <div className="education-list">
@@ -51,11 +96,24 @@ function Education() {
                   }}
                 />
               </div>
-              <img src={edu.schoolImage} alt={edu.school} />
+              <img
+                src={
+                  "https://www.voicesofyouth.org/sites/voy/files/images/2019-03/school.jpg"
+                }
+                alt={edu.school}
+              />
               <div className="education-info">
                 <h4>{edu.school}</h4>
-                <p className="edu-degree">{edu.degree + " . " + edu.field}</p>
-                <p className="edu-timeline">{edu.start + " - " + edu.end}</p>
+                <p className="edu-degree">
+                  {edu.degree + " . " + edu.field_of_study}
+                </p>
+                <p className="edu-timeline">
+                  {`${edu?.start_date?.month} ` +
+                    edu?.start_date?.year +
+                    "-" +
+                    `${edu?.start_date?.month} ` +
+                    edu?.end_date?.year}
+                </p>
               </div>
             </div>
           );

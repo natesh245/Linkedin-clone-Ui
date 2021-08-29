@@ -117,8 +117,8 @@ const initialState = {
   selectedProfile: null,
   selectedProfileIntro: null,
   selectedProfileSummary: null,
-  selectedEducation: null,
-  selectedExperience: null,
+  selectedProfileEducation: null,
+  selectedProfileExperience: null,
 };
 
 export const profileSlice = createSlice({
@@ -143,11 +143,30 @@ export const profileSlice = createSlice({
     setSelectedProfileSummary: (state, action) => {
       state.selectedProfileSummary = action.payload;
     },
-    setSelectedEducation: (state, action) => {
-      state.selectedEducation = action.payload;
+    setSelectedProfileEducation: (state, action) => {
+      let education = action.payload || null;
+      if (action.payload === "new") {
+        education = {
+          school: "",
+          degree: "",
+          field_of_study: "",
+          start_date: {
+            month: "",
+            year: "",
+          },
+          end_date: {
+            month: "",
+            year: "",
+          },
+          grade: "",
+          activities_and_societies: "",
+          description: "",
+        };
+      }
+      state.selectedProfileEducation = education;
     },
-    setSelectedExperience: (state, action) => {
-      state.selectedExperience = action.payload;
+    setSelectedProfileExperience: (state, action) => {
+      state.selectedProfileExperience = action.payload;
     },
     setSelectedProfileEditForm: (state, action) => {
       state.selectedProfileEditForm = action.payload;
@@ -184,8 +203,8 @@ export const profileSlice = createSlice({
 });
 
 export const {
-  setSelectedEducation,
-  setSelectedExperience,
+  setSelectedProfileEducation,
+  setSelectedProfileExperience,
   setSelectedProfileEditForm,
   setSelectedProfileIntro,
   setSelectedProfileSummary,

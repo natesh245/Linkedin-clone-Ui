@@ -22,20 +22,27 @@ for (let i = currentYear; i >= 1921; i--) {
   yearOptions.push(i);
 }
 
-function MonthYear({ label, onChange, monthValue, yearValue }) {
+function MonthYear({
+  label,
+  onChange,
+  monthValue,
+  yearValue,
+  onMonthChange,
+  onYearChange,
+}) {
   return (
     <div className="month-year-container">
       <label htmlFor="month-year">{label}</label>
       <div className="month-year">
         <LabeledDropDown
           value={monthValue}
-          onChange={onChange}
+          onChange={onMonthChange}
           options={monthOptions}
         />
 
         <LabeledDropDown
           value={yearValue}
-          onChange={onChange}
+          onChange={onYearChange}
           options={yearOptions}
         />
       </div>
