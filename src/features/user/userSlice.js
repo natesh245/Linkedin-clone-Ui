@@ -83,9 +83,7 @@ export const userSlice = createSlice({
           state.user = data;
         }
       })
-      // .addCase(registerUser.rejected, (state, action) => {
-      //   alert(action.error.message);
-      // })
+
       .addCase(loginUser.fulfilled, (state, action) => {
         const { data, message } = action.payload.data;
         if (!data) alert(message);
@@ -95,9 +93,6 @@ export const userSlice = createSlice({
           state.user = data;
         }
       });
-    // .addCase(loginUser.rejected, (state, action) => {
-    //   alert(action.error.message);
-    // });
   },
 });
 

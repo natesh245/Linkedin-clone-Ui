@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Card from "../../Card/Card";
 import Avatar from "../../Avatar/Avatar";
 import CurveButton from "../../Button/CurveButton/CurveButton";
@@ -7,10 +8,75 @@ import Dialog from "../../Dialog/Dialog";
 import EditIntro from "./EditIntro/EditIntro";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 
+import {
+  setSelectedProfileIntro,
+  addProfileByUserId,
+  updateProfileByProfileId,
+} from "../../../features/profile/profileSlice";
+
 import "./ProfileMain.css";
 
 function ProfileMain() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const selectedProfile = useSelector((state) => state.profile.selectedProfile);
+  const selectedProfileIntro = useSelector(
+    (state) => state.profile.selectedProfileIntro
+  );
+  const user = useSelector((state) => state.user.user);
+
+  const dispatch = useDispatch();
+
+  const handleSave = () => {
+    if (selectedProfileIntro) {
+      if (selectedProfile) {
+        dispatch(
+          updateProfileByProfileId({
+            profileId: selectedProfile._id,
+            body: selectedProfileIntro,
+          })
+        );
+      } else
+        dispatch(
+          addProfileByUserId({ userId: user._id, body: selectedProfileIntro })
+        );
+    }
+  };
+
+  if (!selectedProfile) {
+    return (
+      <>
+        <Card width="100%">
+          <div
+            style={{
+              borderRadius: "10px",
+
+              display: "flex",
+              justifyContent: "space-between",
+              padding: "1rem",
+            }}
+          >
+            <div>Add Profile Introduction</div>
+            <CurveButton
+              color="blue"
+              title="Add"
+              onClick={() => {
+                setIsDialogOpen(true);
+                dispatch(setSelectedProfileIntro("new"));
+              }}
+            ></CurveButton>
+          </div>
+        </Card>
+        <Dialog
+          title="Edit Intro"
+          isOpen={isDialogOpen}
+          setIsDialogOpen={setIsDialogOpen}
+          onSave={handleSave}
+        >
+          <EditIntro />
+        </Dialog>
+      </>
+    );
+  }
   return (
     // <div className="profile-main">
     <Card width="100%" height="100%">
@@ -35,12 +101,26 @@ function ProfileMain() {
       <div className="profile-main__details">
         <CreateIcon
           style={{ position: "absolute", right: 10, top: -60 }}
-          onClick={() => setIsDialogOpen(true)}
+          onClick={() => {
+            setIsDialogOpen(true);
+            dispatch(
+              setSelectedProfileIntro({
+                first_name: user.first_name,
+                last_name: user.last_name,
+                country: selectedProfile.country || "",
+                industry: selectedProfile.industry || "",
+                current_position: selectedProfile.current_position || "",
+                location: selectedProfile.location || "",
+                headline: selectedProfile.headline || "",
+              })
+            );
+          }}
         />
         <Dialog
           title="Edit Intro"
           isOpen={isDialogOpen}
           setIsDialogOpen={setIsDialogOpen}
+          onSave={handleSave}
         >
           <EditIntro />
         </Dialog>

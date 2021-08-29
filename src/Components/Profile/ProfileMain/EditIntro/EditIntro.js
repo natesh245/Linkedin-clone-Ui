@@ -2,6 +2,9 @@ import "./EditIntro.css";
 import LabeledInput from "../../../Input/LabeledInput/LabeledInput";
 import LabeledDropDown from "../../../Input/LabeledDropDown/LabeledDropDown";
 
+import { useSelector, useDispatch } from "react-redux";
+import { setSelectedProfileIntro } from "../../../../features/profile/profileSlice";
+
 const industryOptions = [
   "Choose an industry…",
   "Accounting",
@@ -155,53 +158,84 @@ const industryOptions = [
 ];
 
 function EditIntro() {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.user);
+  const selectedProfile = useSelector((state) => state.profile.selectedProfile);
+  const selectedProfileIntro = useSelector(
+    (state) => state.profile.selectedProfileIntro
+  );
+  const educationOptions = useSelector((state) => {
+    if (state.profile.selectedProfile) {
+      return state.profile.selectedProfile.education.map((edu) => edu.school);
+    }
+    return [];
+  });
+
+  const handleChange = (field, value) => {
+    dispatch(
+      setSelectedProfileIntro({
+        ...selectedProfileIntro,
+        [field]: value,
+      })
+    );
+  };
+
   return (
     <div className="edit-intro">
       <LabeledInput
-        value=""
-        onChange={null}
+        value={selectedProfileIntro?.first_name || ""}
+        onChange={(event) => handleChange("first_name", event.target.value)}
         label="First Name"
         isRequired={true}
       />
       <LabeledInput
-        value=""
-        onChange={null}
+        value={selectedProfileIntro?.last_name || ""}
+        onChange={(event) => handleChange("last_name", event.target.value)}
         label="Last Name"
         isRequired={true}
       />
 
       <div className="headline">
         <label htmlFor="headline-input">Headline *</label>
-        <textarea id="headline-input" rows="1" cols="60"></textarea>
+        <textarea
+          id="headline-input"
+          rows="1"
+          cols="60"
+          onChange={(event) => handleChange("headline", event.target.value)}
+        >
+          {selectedProfileIntro?.headline || ""}
+        </textarea>
       </div>
       <LabeledInput
-        value=""
-        onChange={null}
+        value={selectedProfileIntro?.current_position || ""}
+        onChange={(event) =>
+          handleChange("current_position", event.target.value)
+        }
         label="Current Position"
         isRequired={true}
       />
-      <LabeledInput
-        value=""
-        onChange={null}
+      <LabeledDropDown
+        value={selectedProfileIntro?.education || ""}
+        onChange={(event) => handleChange("education", event.target.value)}
         label="Education"
-        isRequired={true}
+        options={educationOptions}
       />
       <LabeledInput
-        value=""
-        onChange={null}
+        value={selectedProfileIntro?.country || ""}
+        onChange={(event) => handleChange("country", event.target.value)}
         label="Country/ Region"
         isRequired={true}
       />
       <LabeledInput
-        value=""
-        onChange={null}
+        value={selectedProfileIntro?.location || ""}
+        onChange={(event) => handleChange("location", event.target.value)}
         label="Location in this country/Region"
         isRequired={true}
       />
 
       <LabeledDropDown
-        value=""
-        onChange={null}
+        value={selectedProfileIntro?.industry || ""}
+        onChange={(event) => handleChange("industry", event.target.value)}
         label="Industry"
         options={industryOptions}
       />

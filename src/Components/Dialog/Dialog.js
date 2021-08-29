@@ -5,7 +5,14 @@ import CurveButton from "../Button/CurveButton/CurveButton";
 import CloseIcon from "@material-ui/icons/Close";
 
 import BackDrop from "../../Components/BackDrop/BackDrop";
-function Dialog({ children, title, customAction, isOpen, setIsDialogOpen }) {
+function Dialog({
+  children,
+  title,
+  customAction,
+  isOpen,
+  setIsDialogOpen,
+  onSave,
+}) {
   // const [isOpen, setIsOpen] = useState(true);
   if (!isOpen) return null;
   return (
@@ -20,7 +27,7 @@ function Dialog({ children, title, customAction, isOpen, setIsDialogOpen }) {
           <div>{customAction}</div>
 
           <div>
-            <CurveButton title="Save" color="blue" />
+            <CurveButton title="Save" color="blue" onClick={onSave} />
           </div>
         </div>
       </div>
