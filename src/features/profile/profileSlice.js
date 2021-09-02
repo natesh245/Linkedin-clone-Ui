@@ -43,6 +43,7 @@ export const getProfileByUserId = createAsyncThunk(
             message: error.message,
           })
         );
+      thunkAPI.dispatch(setIsLoading(false));
       return error;
     }
   }
