@@ -3,7 +3,7 @@ import axios from "axios";
 import { logOutUser } from "../features/user/userSlice";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:4000/api",
+  baseURL: process.env.REACT_APP_API_URL,
 });
 
 export const interceptors = (store) => {
