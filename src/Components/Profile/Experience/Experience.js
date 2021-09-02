@@ -30,51 +30,96 @@ function Experience() {
   const handleSave = () => {
     if (selectedProfileExperience) {
       if (selectedProfile) {
-        const experience = selectedProfile?.experience || [];
-
-        const selectedExperience = selectedProfile.experience.find(
-          (e) => e._id === selectedProfileExperience.exp_id
-        );
-        let positions = [];
-        if (selectedExperience)
-          positions = selectedExperience.positions.filter(
-            (pos) => pos._id !== selectedProfileExperience.pos_id
-          );
-        positions.push(selectedProfileExperience);
+        let companies = selectedProfile.experience;
+        const selectedPosition = { ...selectedProfileExperience };
         const selectedCompany = {
-          company_name: selectedProfileExperience?.company_name,
-          positions,
+          _id: selectedProfileExperience.exp_id,
+          company_name: selectedProfileExperience.company_name,
         };
+
+        if (selectedCompany._id === "") {
+          const existingCompany = companies.find(
+            (comp) => comp.company_name === selectedCompany.company_name
+          );
+          if (existingCompany) {
+            const existingPosition = existingCompany.positions.find(
+              (pos) => pos._id === selectedPosition.pos_id
+            );
+            let positions = existingCompany.positions;
+            if (existingPosition) {
+              positions = positions.map((pos) => {
+                if (pos._id === existingPosition._id) {
+                  return {
+                    ...selectedPosition,
+                  };
+                } else return pos;
+              });
+            } else {
+              positions = [...positions, selectedPosition];
+            }
+            companies = [
+              ...companies.filter((comp) => comp._id !== existingCompany._id),
+              {
+                _id: existingCompany._id,
+                company_name: existingCompany.company_name,
+                positions,
+              },
+            ];
+          } else {
+            companies = [
+              ...companies,
+              {
+                company_name: selectedCompany.company_name,
+                positions: [selectedPosition],
+              },
+            ];
+          }
+        } else if (selectedCompany._id) {
+          companies = companies.map((comp) => {
+            if (comp._id === selectedCompany._id) {
+              let positions = comp.positions;
+              positions = positions.map((pos) => {
+                if (pos._id === selectedPosition.pos_id) {
+                  return {
+                    ...selectedPosition,
+                  };
+                } else {
+                  return pos;
+                }
+              });
+              return {
+                ...comp,
+                positions,
+              };
+            } else {
+              return comp;
+            }
+          });
+        }
 
         dispatch(
           updateProfileByProfileId({
             profileId: selectedProfile._id,
             body: {
-              experience: [
-                selectedCompany,
-                ...experience.filter((exp) => {
-                  if (selectedProfileExperience?.exp_id !== exp._id) {
-                    return true;
-                  }
-                }),
-              ],
+              experience: companies,
             },
           })
         );
-      } else
+      } else {
+        const company = {
+          company_name: selectedProfileExperience.company_name,
+          positions: [selectedProfileExperience],
+        };
+
         dispatch(
           addProfileByUserId({
             userId: user._id,
             body: {
-              experience: [
-                selectedProfileExperience,
-                ...experience.filter(
-                  (exp) => exp._id !== selectedProfileExperience._id
-                ),
-              ],
+              experience: [company],
             },
           })
         );
+      }
     }
   };
   return (
@@ -121,11 +166,13 @@ function Experience() {
                   let comPosition = {
                     exp_id: exp._id,
                     pos_id: position._id,
+                    company_name: exp.company_name,
                     title: position.title,
                     location: position.location,
                     start_date: position.start_date,
                     end_date: position.end_date,
                     description: position.description,
+                    employment_type: position.employment_type,
                   };
                   return (
                     <div className="position-content">
