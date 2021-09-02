@@ -10,10 +10,12 @@ import { logOutUser } from "./features/user/userSlice";
 import Login from "./Components/Auth/Login/Login";
 import Register from "./Components/Auth/Register/Register";
 import Snackbar from "./Components/Common/FeedBack/Snackbar/Snackbar";
+import Loader from "./Components/Common/FeedBack/Loader/Loader";
 import jwt_decode from "jwt-decode";
 
 function App() {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+  const isLoading = useSelector((state) => state.feedback.isLoading);
   const user = useSelector((state) => state.user.user);
   const history = useHistory();
   const dispatch = useDispatch();
@@ -46,6 +48,7 @@ function App() {
           <Route path="/user/profile" exact component={Profile} />
         </Switch>
       </div>
+      {isLoading && <Loader />}
       <Snackbar />
     </div>
   );
