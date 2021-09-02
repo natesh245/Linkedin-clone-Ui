@@ -147,7 +147,7 @@ function Experience() {
                         {`${position?.start_date?.month} ` +
                           position?.start_date?.year +
                           "-" +
-                          `${position?.start_date?.month} ` +
+                          `${position?.end_date?.month} ` +
                           position?.end_date?.year}
                       </p>
                       <p className="position-place">{position.location}</p>

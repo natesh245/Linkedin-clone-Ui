@@ -83,7 +83,7 @@ function EditEducation(props) {
           handleYearChange("start_date", event.target.value)
         }
         monthValue={selectedProfileEducation?.start_date?.month || ""}
-        yearhValue={selectedProfileEducation?.start_date?.year || ""}
+        yearValue={selectedProfileEducation?.start_date?.year || ""}
       />
       <MonthYear
         label="End Date"
@@ -94,7 +94,7 @@ function EditEducation(props) {
           handleYearChange("end_date", event.target.value)
         }
         monthValue={selectedProfileEducation?.end_date?.month || ""}
-        yearhValue={selectedProfileEducation?.end_date?.year || ""}
+        yearValue={selectedProfileEducation?.end_date?.year || ""}
       />
       <LabeledInput
         label="Grade"

@@ -111,7 +111,7 @@ function Education() {
                   {`${edu?.start_date?.month} ` +
                     edu?.start_date?.year +
                     "-" +
-                    `${edu?.start_date?.month} ` +
+                    `${edu?.end_date?.month} ` +
                     edu?.end_date?.year}
                 </p>
               </div>

@@ -101,7 +101,7 @@ function EditExperience(props) {
           handleYearChange("start_date", event.target.value)
         }
         monthValue={selectedProfileExperience?.start_date?.month || ""}
-        yearhValue={selectedProfileExperience?.start_date?.year || ""}
+        yearValue={selectedProfileExperience?.start_date?.year || ""}
       />
       <MonthYear
         label="End Date"
@@ -112,7 +112,7 @@ function EditExperience(props) {
           handleYearChange("end_date", event.target.value)
         }
         monthValue={selectedProfileExperience?.end_date?.month || ""}
-        yearhValue={selectedProfileExperience?.end_date?.year || ""}
+        yearValue={selectedProfileExperience?.end_date?.year || ""}
       />
 
       <LabeledInput
