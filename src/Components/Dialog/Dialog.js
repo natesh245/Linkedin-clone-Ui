@@ -29,9 +29,24 @@ function Dialog({
 
           <div>
             {onDelete && (
-              <CurveButton title="Delete" color="white" onClick={onDelete} />
+              <CurveButton
+                title="Delete"
+                color="white"
+                onClick={() => {
+                  setIsDialogOpen(false);
+                  onDelete();
+                }}
+              />
             )}
-            <CurveButton title="Save" color="blue" onClick={onSave} />
+            <CurveButton
+              title="Save"
+              color="blue"
+              onClick={() => {
+                setIsDialogOpen(false);
+
+                onSave();
+              }}
+            />
           </div>
         </div>
       </div>
