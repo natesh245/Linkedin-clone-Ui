@@ -27,6 +27,28 @@ function Experience() {
   const dispatch = useDispatch();
   const experience = selectedProfile?.experience || [];
 
+  const handleDelete = () => {
+    const experiences = experience
+      .map((exp) => {
+        if (exp._id === selectedProfileExperience.exp_id) {
+          const positions = exp.positions.filter(
+            (pos) => pos._id !== selectedProfileExperience.pos_id
+          );
+          return { ...exp, positions };
+        }
+        return exp;
+      })
+      .filter((exp) => exp.positions.length > 0);
+    dispatch(
+      updateProfileByProfileId({
+        profileId: selectedProfile._id,
+        body: {
+          experience: experiences,
+        },
+      })
+    );
+  };
+
   const handleSave = () => {
     if (selectedProfileExperience) {
       if (selectedProfile) {
@@ -139,6 +161,12 @@ function Experience() {
           isOpen={isDialogOpen}
           setIsDialogOpen={setIsDialogOpen}
           onSave={handleSave}
+          onDelete={
+            !!selectedProfile &&
+            !!selectedProfileExperience &&
+            !!selectedProfileExperience.pos_id &&
+            handleDelete
+          }
         >
           <EditExperience />
         </Dialog>

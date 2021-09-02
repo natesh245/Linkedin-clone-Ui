@@ -26,6 +26,21 @@ function Education() {
   const dispatch = useDispatch();
   const education = selectedProfile?.education || [];
 
+  const handleDelete = () => {
+    dispatch(
+      updateProfileByProfileId({
+        profileId: selectedProfile._id,
+        body: {
+          education: [
+            ...education.filter(
+              (edu) => edu._id !== selectedProfileEducation._id
+            ),
+          ],
+        },
+      })
+    );
+  };
+
   const handleSave = () => {
     if (selectedProfileEducation) {
       if (selectedProfile) {
@@ -77,6 +92,12 @@ function Education() {
           isOpen={isDialogOpen}
           setIsDialogOpen={setIsDialogOpen}
           onSave={handleSave}
+          onDelete={
+            !!selectedProfile &&
+            !!selectedProfileEducation &&
+            !!selectedProfileEducation._id &&
+            handleDelete
+          }
         >
           <EditEducation />
         </Dialog>

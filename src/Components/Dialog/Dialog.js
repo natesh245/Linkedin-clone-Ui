@@ -12,6 +12,7 @@ function Dialog({
   isOpen,
   setIsDialogOpen,
   onSave,
+  onDelete,
 }) {
   // const [isOpen, setIsOpen] = useState(true);
   if (!isOpen) return null;
@@ -27,6 +28,9 @@ function Dialog({
           <div>{customAction}</div>
 
           <div>
+            {onDelete && (
+              <CurveButton title="Delete" color="white" onClick={onDelete} />
+            )}
             <CurveButton title="Save" color="blue" onClick={onSave} />
           </div>
         </div>
