@@ -75,6 +75,7 @@ export const addProfileByUserId = createAsyncThunk(
           message: error.message,
         })
       );
+      thunkAPI.dispatch(setIsLoading(false));
       return error;
     }
   }
@@ -107,6 +108,7 @@ export const updateProfileByProfileId = createAsyncThunk(
           message: JSON.stringify(error),
         })
       );
+      thunkAPI.dispatch(setIsLoading(false));
       return error;
     }
   }

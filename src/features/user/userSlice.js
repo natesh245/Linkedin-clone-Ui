@@ -23,6 +23,7 @@ export const registerUser = createAsyncThunk(
           message: JSON.stringify(error),
         })
       );
+      thunkAPI.dispatch(setIsLoading(false));
       return error;
     }
   }
@@ -47,6 +48,7 @@ export const loginUser = createAsyncThunk(
           message: error.message,
         })
       );
+      thunkAPI.dispatch(setIsLoading(false));
       return Promise.reject(error);
     }
   }
