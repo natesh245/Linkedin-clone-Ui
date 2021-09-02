@@ -125,7 +125,7 @@ function ProfileMain() {
           <EditIntro />
         </Dialog>
         <div class="pm-left">
-          <h2>{user.first_name + " " + user.last_name}</h2>
+          <h2>{user?.first_name + " " + user?.last_name}</h2>
           <div>{selectedProfile.headline}</div>
           <div className="profile-com-edu">
             <span>SLK .</span>
