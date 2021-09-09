@@ -133,7 +133,9 @@ function ProfileMain() {
           </div>
           <div className="profile-place-info">
             <span>
-              {`${selectedProfile.location}, ${selectedProfile.country}`}
+              {`${selectedProfile.location || ""}, ${
+                selectedProfile.country || ""
+              }`}
             </span>
             <span className="profile-contact-info">
               <a href="">Contact Info</a>

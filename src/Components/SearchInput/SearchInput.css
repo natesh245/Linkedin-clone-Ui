@@ -16,6 +16,33 @@
   background-color: transparent;
 }
 
+ul.search-results {
+  position: fixed;
+  width: 80vh;
+  top: 4.5rem;
+  left: 1rem;
+  display: flex;
+  z-index: 1000;
+  padding: 1rem;
+  justify-content: flex-start;
+  border-radius: 5px;
+}
+
+ul.search-results li {
+  display: flex;
+  align-items: center;
+}
+
+ul.search-results li h4 {
+  margin: 0 1rem;
+  font-size: 1rem;
+}
+
+ul.search-results li p {
+  color: gray;
+  font-size: 0.9rem;
+}
+
 @media screen and (max-width: 998px) {
   .search-input {
     display: none;
