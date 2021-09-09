@@ -21,16 +21,18 @@ ul.search-results {
   width: 80vh;
   top: 4.5rem;
   left: 1rem;
-  display: flex;
+
   z-index: 1000;
   padding: 1rem;
-  justify-content: flex-start;
+
   border-radius: 5px;
 }
 
 ul.search-results li {
   display: flex;
   align-items: center;
+
+  padding: 10px;
 }
 
 ul.search-results li h4 {
