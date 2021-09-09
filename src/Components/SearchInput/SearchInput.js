@@ -51,7 +51,10 @@ function SearchInput() {
           }}
           style={{ position: "fixed", top: "4rem" }}
         >
-          <ul className="search-results" style={{}}>
+          <ul
+            className="search-results"
+            onClick={(event) => event.stopPropagation()}
+          >
             {searchResults.length === 0 && (
               <li style={{ margin: "auto" }}>No Results</li>
             )}
