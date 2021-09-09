@@ -40,7 +40,7 @@ function SearchInput() {
               setSearchQuery(event.target.value);
             }}
             value={searchQuery}
-            onClick={() => setShowSearchResult(true)}
+            onClick={() => !showSearchResult && setShowSearchResult(true)}
           />
         </form>
       </div>
