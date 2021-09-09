@@ -26,6 +26,26 @@ export const getProfileById = createAsyncThunk(
   }
 );
 
+export const getSearchResult = createAsyncThunk(
+  "profile/getSearchResult",
+  async (searchQuery, thunkAPI) => {
+    try {
+      const response = await axios.get(`profile/search/?search=${searchQuery}`);
+
+      return response;
+    } catch (error) {
+      thunkAPI.dispatch(
+        setSnackBar({
+          isOpen: true,
+          type: "error",
+          message: JSON.stringify(error),
+        })
+      );
+      return error;
+    }
+  }
+);
+
 export const getProfileByUserId = createAsyncThunk(
   "profile/getProfileByUserId",
   async (userId, thunkAPI) => {
@@ -122,6 +142,7 @@ const initialState = {
   selectedProfileSummary: null,
   selectedProfileEducation: null,
   selectedProfileExperience: null,
+  searchResults: [],
 };
 
 export const profileSlice = createSlice({
@@ -220,6 +241,12 @@ export const profileSlice = createSlice({
         if (action.payload.data) {
           const { data, message } = action.payload.data;
           state.selectedProfile = data;
+        }
+      })
+      .addCase(getSearchResult.fulfilled, (state, action) => {
+        if (action.payload.data) {
+          const { data, message } = action.payload.data;
+          state.searchResults = data;
         }
       });
   },
