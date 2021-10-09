@@ -43,3 +43,9 @@
   position: absolute;
   top: 86%;
 }
+
+@media screen and (max-width: 800px) {
+  .dialog {
+    width: 95%;
+  }
+}
