@@ -48,6 +48,11 @@ function App() {
           <Route path="/auth/login" exact component={Login} />
           <Route path="/auth/register" exact component={Register} />
           <Route path="/user/profile" exact component={Profile} />
+          <Route path="/feed" exact component={null} />
+          <Route path="/mynetwork" exact component={null} />
+          <Route path="/jobs" exact component={null} />
+          <Route path="/messaging" exact component={null} />
+          <Route path="/notifications" exact component={null} />
         </Switch>
       </div>
       {isLoading && <Loader />}

@@ -1,13 +1,14 @@
 import "./MyProfileOptions.css";
-
+import { useHistory } from "react-router";
 import Avatar from "../../Avatar/Avatar";
 import CurveButton from "../../Button/CurveButton/CurveButton";
 import { useDispatch } from "react-redux";
 
 import { logOutUser } from "../../../features/user/userSlice";
 
-function MyProfileOptions() {
+function MyProfileOptions({ setIsOptionsOpen }) {
   const dispatch = useDispatch();
+  const history = useHistory();
   return (
     <div className="my-profile-options">
       <div className="profile-options">
@@ -27,6 +28,10 @@ function MyProfileOptions() {
         color="blue-white"
         style={{ width: "90%", margin: "5px auto", padding: "5px 10px" }}
         title="View profile"
+        onClick={() => {
+          history.push("/user/profile");
+          setIsOptionsOpen(false);
+        }}
       />
       <ul>
         <li>Account</li>

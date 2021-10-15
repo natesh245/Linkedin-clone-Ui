@@ -14,6 +14,15 @@
   display: none;
 }
 
+.header-options a {
+  text-decoration: none;
+}
+
+a.active .header-option {
+  border-bottom: 2px solid black;
+  color: black;
+}
+
 @media screen and (max-width: 700px) {
   .header-app-options {
     display: none;

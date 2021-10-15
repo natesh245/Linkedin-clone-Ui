@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import HeaderOption from "./HeaderOption/HeaderOption";
 import HomeIcon from "@material-ui/icons/Home";
@@ -16,11 +17,22 @@ function HeaderOptions() {
   const [isOptionsOpen, setIsOptionsOpen] = useState(false);
   return (
     <div className="header-options">
-      <HeaderOption title="Home" Icon={HomeIcon} />
-      <HeaderOption title="My Network" Icon={PeopleIcon} />
-      <HeaderOption title="Jobs" Icon={BusinessCenterIcon} />
-      <HeaderOption title="Messaging" Icon={SmsIcon} />
-      <HeaderOption title="Notifications" Icon={NotificationsIcon} />
+      <NavLink to="/feed">
+        <HeaderOption title="Home" Icon={HomeIcon} />
+      </NavLink>
+      <NavLink to="/mynetwork">
+        <HeaderOption title="My Network" Icon={PeopleIcon} />
+      </NavLink>
+      <NavLink to="/jobs">
+        <HeaderOption title="Jobs" Icon={BusinessCenterIcon} />
+      </NavLink>
+      <NavLink to="/messaging">
+        <HeaderOption title="Messaging" Icon={SmsIcon} />
+      </NavLink>
+      <NavLink to="/notifications">
+        <HeaderOption title="Notifications" Icon={NotificationsIcon} />
+      </NavLink>
+
       <div style={{ position: "relative" }}>
         <HeaderOption
           title="Me"
@@ -30,7 +42,9 @@ function HeaderOptions() {
           option={true}
           onClick={() => setIsOptionsOpen((isOptionsOpen) => !isOptionsOpen)}
         />
-        {isOptionsOpen && <MyProfileOptions />}
+        {isOptionsOpen && (
+          <MyProfileOptions setIsOptionsOpen={setIsOptionsOpen} />
+        )}
       </div>
 
       <div className="more-icon">
