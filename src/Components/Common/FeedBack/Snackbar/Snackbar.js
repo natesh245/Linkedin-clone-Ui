@@ -4,7 +4,7 @@ import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { setSnackBar } from "../../../../features/feedback/feedbackSlice";
+import { setSnackBar } from "../../../../slices/feedback/feedbackSlice";
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;

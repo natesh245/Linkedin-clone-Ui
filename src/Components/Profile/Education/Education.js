@@ -11,7 +11,7 @@ import {
   setSelectedProfileEducation,
   addProfileByUserId,
   updateProfileByProfileId,
-} from "../../../features/profile/profileSlice";
+} from "../../../slices/profile/profileSlice";
 
 function Education() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);

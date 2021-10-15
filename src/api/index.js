@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { logOutUser } from "../features/user/userSlice";
+import { logOutUser } from "../slices/user/userSlice";
 
 const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,

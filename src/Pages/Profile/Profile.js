@@ -10,7 +10,7 @@ import Experience from "../../Components/Profile/Experience/Experience";
 import Education from "../../Components/Profile/Education/Education";
 import Suggestion from "../../Components/Profile/Suggestion/Suggestion";
 
-import { getProfileByUserId } from "../../features/profile/profileSlice";
+import { getProfileByUserId } from "../../slices/profile/profileSlice";
 
 function Profile() {
   const user = useSelector((state) => state.user.user);

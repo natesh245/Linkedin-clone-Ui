@@ -12,7 +12,7 @@ import {
   setSelectedProfileIntro,
   addProfileByUserId,
   updateProfileByProfileId,
-} from "../../../features/profile/profileSlice";
+} from "../../../slices/profile/profileSlice";
 
 import "./ProfileMain.css";
 

@@ -4,7 +4,7 @@ import Avatar from "../../Avatar/Avatar";
 import CurveButton from "../../Button/CurveButton/CurveButton";
 import { useDispatch } from "react-redux";
 
-import { logOutUser } from "../../../features/user/userSlice";
+import { logOutUser } from "../../../slices/user/userSlice";
 
 function MyProfileOptions({ setIsOptionsOpen }) {
   const dispatch = useDispatch();

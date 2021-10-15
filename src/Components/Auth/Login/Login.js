@@ -6,7 +6,7 @@ import LabeledInput from "../../Input/LabeledInput/LabeledInput";
 import CurvedButton from "../../Button/CurveButton/CurveButton";
 import { Link } from "react-router-dom";
 
-import { loginUser } from "../../../features/user/userSlice";
+import { loginUser } from "../../../slices/user/userSlice";
 
 function Login() {
   const [emailId, setEmailId] = useState("");

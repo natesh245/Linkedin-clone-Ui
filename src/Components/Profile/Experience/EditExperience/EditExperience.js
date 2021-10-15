@@ -5,7 +5,7 @@ import LabeledInput from "../../../Input/LabeledInput/LabeledInput";
 import LabeledTextArea from "../../../Input/LabeledTextArea/LabeledTextArea";
 
 import { useSelector, useDispatch } from "react-redux";
-import { setSelectedProfileExperience } from "../../../../features/profile/profileSlice";
+import { setSelectedProfileExperience } from "../../../../slices/profile/profileSlice";
 
 import "./EditExperience.css";
 

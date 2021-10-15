@@ -5,7 +5,7 @@ import LabeledTextArea from "../../../Input/LabeledTextArea/LabeledTextArea";
 import MonthYear from "../../../Input/DatePicker/MonthYearPicker/MonthYear";
 
 import { useSelector, useDispatch } from "react-redux";
-import { setSelectedProfileEducation } from "../../../../features/profile/profileSlice";
+import { setSelectedProfileEducation } from "../../../../slices/profile/profileSlice";
 
 function EditEducation(props) {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "../features/user/userSlice";
-import feedbackReducer from "../features/feedback/feedbackSlice";
-import profileReducer from "../features/profile/profileSlice";
+import userReducer from "../slices/user/userSlice";
+import feedbackReducer from "../slices/feedback/feedbackSlice";
+import profileReducer from "../slices/profile/profileSlice";
 import { interceptors } from "../api";
 
 const store = configureStore({

@@ -4,7 +4,7 @@ import LabeledInput from "../../../Input/LabeledInput/LabeledInput";
 import LabeledDropDown from "../../../Input/LabeledDropDown/LabeledDropDown";
 
 import { useSelector, useDispatch } from "react-redux";
-import { setSelectedProfileIntro } from "../../../../features/profile/profileSlice";
+import { setSelectedProfileIntro } from "../../../../slices/profile/profileSlice";
 
 const industryOptions = [
   "Choose an industry…",

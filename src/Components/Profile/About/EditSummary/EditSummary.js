@@ -2,7 +2,7 @@ import "./EditSummary.css";
 import { useState, useEffect } from "react";
 import LabeledTextArea from "../../../Input/LabeledTextArea/LabeledTextArea";
 import { useSelector, useDispatch } from "react-redux";
-import { setSelectedProfileSummary } from "../../../../features/profile/profileSlice";
+import { setSelectedProfileSummary } from "../../../../slices/profile/profileSlice";
 
 function EditSummary() {
   const dispatch = useDispatch();

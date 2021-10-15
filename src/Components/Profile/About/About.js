@@ -9,7 +9,7 @@ import {
   setSelectedProfileSummary,
   addProfileByUserId,
   updateProfileByProfileId,
-} from "../../../features/profile/profileSlice";
+} from "../../../slices/profile/profileSlice";
 function About() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const selectedProfile = useSelector((state) => state.profile.selectedProfile);

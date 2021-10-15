@@ -12,7 +12,7 @@ import {
   setSelectedProfileExperience,
   addProfileByUserId,
   updateProfileByProfileId,
-} from "../../../features/profile/profileSlice";
+} from "../../../slices/profile/profileSlice";
 
 function Experience() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);

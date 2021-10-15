@@ -5,7 +5,7 @@ import CurvedButton from "../../Button/CurveButton/CurveButton";
 import { Link } from "react-router-dom";
 import "./Register.css";
 
-import { registerUser } from "../../../features/user/userSlice";
+import { registerUser } from "../../../slices/user/userSlice";
 
 function Register() {
   const [firstName, setFirstName] = useState("");

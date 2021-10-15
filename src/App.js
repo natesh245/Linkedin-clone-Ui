@@ -6,8 +6,8 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { Switch, Route, useHistory, useLocation } from "react-router-dom";
-import { logOutUser } from "./features/user/userSlice";
-import { resetProfile } from "./features/profile/profileSlice";
+import { logOutUser } from "./slices/user/userSlice";
+import { resetProfile } from "./slices/profile/profileSlice";
 import Login from "./Components/Auth/Login/Login";
 import Register from "./Components/Auth/Register/Register";
 import Snackbar from "./Components/Common/FeedBack/Snackbar/Snackbar";
