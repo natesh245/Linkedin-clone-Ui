@@ -215,6 +215,9 @@ export const profileSlice = createSlice({
     setSelectedProfileEditForm: (state, action) => {
       state.selectedProfileEditForm = action.payload;
     },
+    resetProfile: (state, action) => {
+      return { ...initialState };
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -258,5 +261,6 @@ export const {
   setSelectedProfileEditForm,
   setSelectedProfileIntro,
   setSelectedProfileSummary,
+  resetProfile,
 } = profileSlice.actions;
 export default profileSlice.reducer;

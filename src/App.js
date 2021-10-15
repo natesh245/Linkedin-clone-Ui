@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { Switch, Route, useHistory, useLocation } from "react-router-dom";
 import { logOutUser } from "./features/user/userSlice";
+import { resetProfile } from "./features/profile/profileSlice";
 import Login from "./Components/Auth/Login/Login";
 import Register from "./Components/Auth/Register/Register";
 import Snackbar from "./Components/Common/FeedBack/Snackbar/Snackbar";
@@ -24,6 +25,7 @@ function App() {
     if (isLoggedIn) {
       history.push("/user/profile");
     } else {
+      dispatch(resetProfile());
       history.push("/auth/login");
     }
   }, [isLoggedIn, history]);
