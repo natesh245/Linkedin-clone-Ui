@@ -53,3 +53,17 @@ ul.search-results li p {
     display: block;
   }
 }
+
+.search-input-expand {
+  display: flex;
+  position: absolute;
+  margin-left: 50px;
+
+  width: 80%;
+  height: 70%;
+}
+
+.search-input-expand + div ul.search-results {
+  width: 80%;
+  left: 10%;
+}

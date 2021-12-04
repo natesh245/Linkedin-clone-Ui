@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./SearchInput.css";
 import SearchIcon from "@material-ui/icons/Search";
@@ -7,12 +7,16 @@ import { getSearchResult } from "../../slices/profile/profileSlice";
 import BackDrop from "../BackDrop/BackDrop";
 import Avatar from "../Avatar/Avatar";
 
-function SearchInput() {
+function SearchInput({ toggleHeader }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearchResult, setShowSearchResult] = useState(false);
   const searchResults = useSelector((state) => state.profile.searchResults);
+  const searchRef = useRef(null);
 
   const dispatch = useDispatch();
+
+  const showSearchResultHandler = () =>
+    !showSearchResult && setShowSearchResult(true);
   useEffect(() => {
     if (!searchQuery) return;
     let timer = setTimeout(() => {
@@ -27,10 +31,19 @@ function SearchInput() {
   return (
     <>
       <div className="header-search-option">
-        <HeaderOption title="Search" Icon={SearchIcon} />
+        <HeaderOption
+          title="Search"
+          Icon={SearchIcon}
+          onClick={() => {
+            toggleHeader();
+
+            searchRef.current.classList.add("search-input-expand");
+            showSearchResultHandler();
+          }}
+        />
       </div>
 
-      <div className="search-input">
+      <div className="search-input" ref={searchRef}>
         <SearchIcon />
         <form className="search-input-form">
           <input
@@ -40,14 +53,17 @@ function SearchInput() {
               setSearchQuery(event.target.value);
             }}
             value={searchQuery}
-            onClick={() => !showSearchResult && setShowSearchResult(true)}
+            onClick={showSearchResultHandler}
           />
         </form>
       </div>
       {showSearchResult && (
         <BackDrop
           onClickHandler={() => {
+            searchRef.current.classList.contains("search-input-expand") &&
+              toggleHeader();
             setShowSearchResult(false);
+            searchRef.current.classList.remove("search-input-expand");
           }}
           style={{ position: "fixed", top: "4rem" }}
         >
