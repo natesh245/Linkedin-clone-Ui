@@ -1,9 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import "./SearchInput.css";
 import SearchIcon from "@material-ui/icons/Search";
 import HeaderOption from "../Header/HeaderOptions/HeaderOption/HeaderOption";
-import { getSearchResult } from "../../slices/profile/profileSlice";
+import {
+  getSearchResult,
+  getProfileById,
+} from "../../slices/profile/profileSlice";
 import BackDrop from "../BackDrop/BackDrop";
 import Avatar from "../Avatar/Avatar";
 
@@ -77,7 +81,12 @@ function SearchInput({ toggleHeader }) {
             {searchQuery &&
               searchResults.map((result) => {
                 return (
-                  <li key={result._id}>
+                  <li
+                    key={result._id}
+                    onClick={() => {
+                      dispatch(getProfileById(result._id));
+                    }}
+                  >
                     <Avatar
                       width="25px"
                       height="25px"

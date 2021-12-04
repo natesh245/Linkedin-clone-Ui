@@ -99,23 +99,26 @@ function ProfileMain() {
         />
       </div>
       <div className="profile-main__details">
-        <CreateIcon
-          style={{ position: "absolute", right: 10, top: -60 }}
-          onClick={() => {
-            setIsDialogOpen(true);
-            dispatch(
-              setSelectedProfileIntro({
-                first_name: user.first_name,
-                last_name: user.last_name,
-                country: selectedProfile.country || "",
-                industry: selectedProfile.industry || "",
-                current_position: selectedProfile.current_position || "",
-                location: selectedProfile.location || "",
-                headline: selectedProfile.headline || "",
-              })
-            );
-          }}
-        />
+        {selectedProfile.isCurrentUserProfile && (
+          <CreateIcon
+            style={{ position: "absolute", right: 10, top: -60 }}
+            onClick={() => {
+              setIsDialogOpen(true);
+              dispatch(
+                setSelectedProfileIntro({
+                  first_name: user.first_name,
+                  last_name: user.last_name,
+                  country: selectedProfile.country || "",
+                  industry: selectedProfile.industry || "",
+                  current_position: selectedProfile.current_position || "",
+                  location: selectedProfile.location || "",
+                  headline: selectedProfile.headline || "",
+                })
+              );
+            }}
+          />
+        )}
+
         <Dialog
           title="Edit Intro"
           isOpen={isDialogOpen}

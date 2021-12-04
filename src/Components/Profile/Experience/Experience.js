@@ -148,13 +148,15 @@ function Experience() {
     <div className="profile-experience">
       <div className="experience-heading">
         <h2>Experience</h2>
-        <AddIcon
-          onClick={() => {
-            setIsDialogOpen(true);
-            setDialogTitle("Add Experience");
-            dispatch(setSelectedProfileExperience("new"));
-          }}
-        />
+        {selectedProfile?.isCurrentUserProfile && (
+          <AddIcon
+            onClick={() => {
+              setIsDialogOpen(true);
+              setDialogTitle("Add Experience");
+              dispatch(setSelectedProfileExperience("new"));
+            }}
+          />
+        )}
 
         <Dialog
           title={dialogTitle}
@@ -205,13 +207,17 @@ function Experience() {
                   return (
                     <div className="position-content">
                       <div className="edit-icon">
-                        <CreateIcon
-                          onClick={() => {
-                            setIsDialogOpen(true);
-                            setDialogTitle("Edit Experience");
-                            dispatch(setSelectedProfileExperience(comPosition));
-                          }}
-                        />
+                        {selectedProfile?.isCurrentUserProfile && (
+                          <CreateIcon
+                            onClick={() => {
+                              setIsDialogOpen(true);
+                              setDialogTitle("Edit Experience");
+                              dispatch(
+                                setSelectedProfileExperience(comPosition)
+                              );
+                            }}
+                          />
+                        )}
                       </div>
                       <span className="bullet-point"></span>
                       <h6>{position.title}</h6>

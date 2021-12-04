@@ -49,16 +49,18 @@ function About() {
       <Card>
         <div className="about-heading">
           <h2>About</h2>
-          <CreateIcon
-            onClick={() => {
-              setIsDialogOpen(true);
-              dispatch(
-                setSelectedProfileSummary({
-                  description: selectedProfile.description || "",
-                })
-              );
-            }}
-          />
+          {selectedProfile?.isCurrentUserProfile && (
+            <CreateIcon
+              onClick={() => {
+                setIsDialogOpen(true);
+                dispatch(
+                  setSelectedProfileSummary({
+                    description: selectedProfile.description || "",
+                  })
+                );
+              }}
+            />
+          )}
         </div>
         <div className="about-content">
           {selectedProfile?.description || "No decription"}

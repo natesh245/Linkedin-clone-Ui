@@ -79,13 +79,15 @@ function Education() {
     <div className="profile-education">
       <div className="education-heading">
         <h2>Education</h2>
-        <AddIcon
-          onClick={() => {
-            setIsDialogOpen(true);
-            setDialogTitle("Add Education");
-            dispatch(setSelectedProfileEducation("new"));
-          }}
-        />
+        {selectedProfile?.isCurrentUserProfile && (
+          <AddIcon
+            onClick={() => {
+              setIsDialogOpen(true);
+              setDialogTitle("Add Education");
+              dispatch(setSelectedProfileEducation("new"));
+            }}
+          />
+        )}
 
         <Dialog
           title={dialogTitle}
@@ -109,13 +111,15 @@ function Education() {
           return (
             <div className="education-list" key={id}>
               <div className="edit-icon">
-                <CreateIcon
-                  onClick={() => {
-                    setIsDialogOpen(true);
-                    setDialogTitle("Edit Education");
-                    dispatch(setSelectedProfileEducation(edu));
-                  }}
-                />
+                {selectedProfile?.isCurrentUserProfile && (
+                  <CreateIcon
+                    onClick={() => {
+                      setIsDialogOpen(true);
+                      setDialogTitle("Edit Education");
+                      dispatch(setSelectedProfileEducation(edu));
+                    }}
+                  />
+                )}
               </div>
               <img
                 src={

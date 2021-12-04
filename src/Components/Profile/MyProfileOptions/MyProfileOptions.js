@@ -2,12 +2,13 @@ import "./MyProfileOptions.css";
 import { useHistory } from "react-router";
 import Avatar from "../../Avatar/Avatar";
 import CurveButton from "../../Button/CurveButton/CurveButton";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { logOutUser } from "../../../slices/user/userSlice";
-
+import { getProfileByUserId } from "../../../slices/profile/profileSlice";
 function MyProfileOptions({ setIsOptionsOpen }) {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.user);
   const history = useHistory();
   return (
     <div className="my-profile-options">
@@ -31,6 +32,7 @@ function MyProfileOptions({ setIsOptionsOpen }) {
         onClick={() => {
           history.push("/user/profile");
           setIsOptionsOpen(false);
+          dispatch(getProfileByUserId(user._id));
         }}
       />
       <ul>
