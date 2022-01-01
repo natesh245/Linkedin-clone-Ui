@@ -27,7 +27,18 @@ a.active .header-option {
   .header-app-options {
     display: none;
   }
+
+  .network,
+  .jobs {
+    display: none;
+  }
   .more-icon {
     display: block;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .notify {
+    display: none;
   }
 }

@@ -37,3 +37,9 @@
     width: 80%;
   }
 }
+
+@media screen and (max-width: 370px) {
+  .header__left {
+    margin-right: 2rem;
+  }
+}

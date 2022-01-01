@@ -17,19 +17,19 @@ function HeaderOptions() {
   const [isOptionsOpen, setIsOptionsOpen] = useState(false);
   return (
     <div className="header-options">
-      <NavLink to="/feed">
+      <NavLink to="/feed" className={"feed"}>
         <HeaderOption title="Home" Icon={HomeIcon} />
       </NavLink>
-      <NavLink to="/mynetwork">
+      <NavLink to="/mynetwork" className="network">
         <HeaderOption title="My Network" Icon={PeopleIcon} />
       </NavLink>
-      <NavLink to="/jobs">
+      <NavLink to="/jobs" className="jobs">
         <HeaderOption title="Jobs" Icon={BusinessCenterIcon} />
       </NavLink>
-      <NavLink to="/messaging">
+      <NavLink to="/messaging" className={"message"}>
         <HeaderOption title="Messaging" Icon={SmsIcon} />
       </NavLink>
-      <NavLink to="/notifications">
+      <NavLink to="/notifications" className={"notify"}>
         <HeaderOption title="Notifications" Icon={NotificationsIcon} />
       </NavLink>
 
