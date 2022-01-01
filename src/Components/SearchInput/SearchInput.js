@@ -84,6 +84,7 @@ function SearchInput({ toggleHeader }) {
                   <li
                     key={result._id}
                     onClick={() => {
+                      setShowSearchResult(false);
                       dispatch(getProfileById(result._id));
                     }}
                   >
@@ -95,10 +96,12 @@ function SearchInput({ toggleHeader }) {
                       }
                     />
                     <h4>
-                      {result.user.first_name + " " + result.user.last_name}
+                      {(result.user.first_name || "") +
+                        " " +
+                        (result.user.last_name || "")}
                     </h4>
 
-                    <p>{"." + result.headline}</p>
+                    <p>{"." + result.headline || ""}</p>
                   </li>
                 );
               })}
