@@ -138,6 +138,7 @@ export const updateProfileByProfileId = createAsyncThunk(
 const initialState = {
   selectedProfileEditForm: "",
   selectedProfile: null,
+  myProfile: null,
   selectedProfileIntro: null,
   selectedProfileSummary: null,
   selectedProfileEducation: null,
@@ -215,6 +216,9 @@ export const profileSlice = createSlice({
     setSelectedProfileEditForm: (state, action) => {
       state.selectedProfileEditForm = action.payload;
     },
+    setSelectedProfile: (state, action) => {
+      state.selectedProfile = action.payload;
+    },
     resetProfile: (state, action) => {
       return { ...initialState };
     },
@@ -231,6 +235,7 @@ export const profileSlice = createSlice({
       .addCase(getProfileByUserId.fulfilled, (state, action) => {
         if (action.payload.data) {
           const { data, message } = action.payload.data;
+          if (user._id === data.user) state.myProfile = data;
           state.selectedProfile = data;
         }
       })
@@ -262,5 +267,6 @@ export const {
   setSelectedProfileIntro,
   setSelectedProfileSummary,
   resetProfile,
+  setSelectedProfile,
 } = profileSlice.actions;
 export default profileSlice.reducer;

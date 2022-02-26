@@ -14,11 +14,12 @@ import { getProfileByUserId } from "../../slices/profile/profileSlice";
 
 function Profile() {
   const user = useSelector((state) => state.user.user);
+  const myProfile = useSelector((state) => state.profile.myProfile);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (user) dispatch(getProfileByUserId(user._id));
-  }, [user, dispatch]);
+    if (user && !myProfile) dispatch(getProfileByUserId(user._id));
+  }, [dispatch]);
 
   return (
     <div className="profile">

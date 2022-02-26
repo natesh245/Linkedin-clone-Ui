@@ -5,10 +5,14 @@ import CurveButton from "../../Button/CurveButton/CurveButton";
 import { useDispatch, useSelector } from "react-redux";
 
 import { logOutUser } from "../../../slices/user/userSlice";
-import { getProfileByUserId } from "../../../slices/profile/profileSlice";
+import {
+  // getProfileByUserId,
+  setSelectedProfile,
+} from "../../../slices/profile/profileSlice";
 function MyProfileOptions({ setIsOptionsOpen }) {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user.user);
+  // const user = useSelector((state) => state.user.user);
+  const myProfile = useSelector((state) => state.profile.myProfile);
   const history = useHistory();
   return (
     <div className="my-profile-options">
@@ -32,7 +36,8 @@ function MyProfileOptions({ setIsOptionsOpen }) {
         onClick={() => {
           history.push("/user/profile");
           setIsOptionsOpen(false);
-          dispatch(getProfileByUserId(user._id));
+          // dispatch(getProfileByUserId(user._id));
+          dispatch(setSelectedProfile(myProfile));
         }}
       />
       <ul>
