@@ -1,6 +1,7 @@
 import Header from "./Components/Header/Header";
 import "./App.css";
 import Profile from "./Pages/Profile/Profile";
+import Chat from "./Pages/chat/Chat";
 
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -21,23 +22,23 @@ function App() {
   const history = useHistory();
   const dispatch = useDispatch();
   const location = useLocation();
-  useEffect(() => {
-    if (isLoggedIn) {
-      history.push("/user/profile");
-    } else {
-      dispatch(resetProfile());
-      history.push("/auth/login");
-    }
-  }, [isLoggedIn, history]);
+  // useEffect(() => {
+  //   if (isLoggedIn) {
+  //     history.push("/user/profile");
+  //   } else {
+  //     dispatch(resetProfile());
+  //     history.push("/auth/login");
+  //   }
+  // }, [isLoggedIn, history]);
 
-  useEffect(() => {
-    if (user) {
-      const decodedToken = jwt_decode(user.token);
-      if (Date.now() >= decodedToken.exp * 1000) {
-        dispatch(logOutUser());
-      }
-    }
-  }, [location, user, dispatch]);
+  // useEffect(() => {
+  //   if (user) {
+  //     const decodedToken = jwt_decode(user.token);
+  //     if (Date.now() >= decodedToken.exp * 1000) {
+  //       dispatch(logOutUser());
+  //     }
+  //   }
+  // }, [location, user, dispatch]);
   return (
     <div className="App">
       {isLoggedIn && <Header />}
@@ -52,7 +53,7 @@ function App() {
           <Route path="/feed" exact component={null} />
           <Route path="/mynetwork" exact component={null} />
           <Route path="/jobs" exact component={null} />
-          <Route path="/messaging" exact component={null} />
+          <Route path="/messaging" exact component={Chat} />
           <Route path="/notifications" exact component={null} />
         </Switch>
       </div>

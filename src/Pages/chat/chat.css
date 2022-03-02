@@ -1,0 +1,143 @@
+.chat {
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.chat-container {
+  border: 1px solid gray;
+  width: 70%;
+  display: flex;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.chat-list {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid gray;
+}
+
+.ad-container {
+  border: 2px solid black;
+  width: 25%;
+}
+
+.list-header {
+  width: 100%;
+  height: 3rem;
+  border-bottom: 1px solid gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.list-header h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.list-search {
+  height: 4rem;
+  padding: 10px;
+}
+
+.list-search div {
+  background-color: #eef3f8;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+.list-search div input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+.list {
+  flex-grow: 1;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.list .li {
+  padding: 1rem;
+
+  display: flex;
+  text-decoration: none;
+  border-bottom: 1px solid gray;
+}
+
+.list .li .li-div {
+  margin-right: 1rem;
+}
+
+.list .li .li-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.list .li .li-info .info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list .li .li-info .message {
+  align-self: flex-start;
+}
+
+.chat-content {
+  width: 60%;
+  position: relative;
+}
+
+.chat-content .chat-content-header {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  border-bottom: 1px solid gray;
+  align-items: center;
+}
+
+.chat-header {
+  width: 50%;
+  height: 10%;
+  text-align: left;
+  padding: 1px 5px;
+}
+.chat-header h2 {
+  font-size: 1rem;
+}
+
+.chat-header p {
+  color: gray;
+  font-size: 0.8rem;
+}
+
+.chat-content .content {
+  height: 60%;
+  background-color: aliceblue;
+}
+
+.chat-input {
+  height: 33%;
+  border-top: 1px solid black;
+}
+
+.chat-input textarea {
+  border: none;
+  height: 5rem;
+}
+
+.chat-input .input-icons {
+  height: 100%;
+  background-color: aliceblue;
+}
