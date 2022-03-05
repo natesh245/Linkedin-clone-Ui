@@ -1,0 +1,21 @@
+.chat-content .chat-content-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid gray;
+  align-items: center;
+}
+
+.chat-header {
+  width: 50%;
+  text-align: left;
+  padding: 5px;
+}
+.chat-header h2 {
+  font-size: 1rem;
+}
+
+.chat-header p {
+  color: gray;
+  font-size: 0.8rem;
+}

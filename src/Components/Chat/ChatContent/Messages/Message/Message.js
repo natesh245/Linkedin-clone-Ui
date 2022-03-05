@@ -1,5 +1,5 @@
 import React from "react";
-import Avatar from "../../Avatar/Avatar";
+import Avatar from "../../../../Avatar/Avatar";
 import "./Message.css";
 
 function Message({ username, time, content }) {

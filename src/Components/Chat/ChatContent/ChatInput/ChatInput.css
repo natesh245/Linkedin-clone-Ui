@@ -1,0 +1,46 @@
+.chat-input {
+  height: 40%;
+  border-top: 1px solid black;
+}
+
+.chat-input .chat-text-area {
+  border: none;
+  height: 7rem;
+  resize: none;
+}
+
+.chat-input .input-icons {
+  height: 100%;
+  background-color: aliceblue;
+  border-top: 1px solid rgb(190, 190, 190);
+}
+
+.input-icons {
+  display: flex;
+  padding-top: 1rem;
+}
+
+.input-icons .left {
+  width: 75%;
+  text-align: left;
+}
+
+.input-icons .left svg:first-child {
+  margin-left: 15px;
+}
+
+.input-icons .left svg {
+  margin-right: 15px;
+  color: gray;
+}
+
+.input-icons .right {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.input-icons .right svg {
+  margin-right: 15px;
+}

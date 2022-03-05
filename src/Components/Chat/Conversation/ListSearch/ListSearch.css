@@ -1,0 +1,18 @@
+.list-search {
+  height: 4rem;
+  padding: 10px;
+}
+
+.list-search div {
+  background-color: #eef3f8;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+.list-search div input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
