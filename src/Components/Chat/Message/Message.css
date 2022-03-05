@@ -1,0 +1,22 @@
+.chat-message {
+  display: flex;
+  margin: 15px;
+}
+
+.chat-message-info {
+  margin-left: 15px;
+}
+
+.chat-message-info h2 {
+  display: inline;
+  font-size: 1rem;
+}
+
+.chat-message-info span {
+  color: gray;
+  margin-left: 10px;
+}
+
+.chat-message-info div {
+  text-align: left;
+}

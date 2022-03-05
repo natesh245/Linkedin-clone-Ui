@@ -22,23 +22,23 @@ function App() {
   const history = useHistory();
   const dispatch = useDispatch();
   const location = useLocation();
-  // useEffect(() => {
-  //   if (isLoggedIn) {
-  //     history.push("/user/profile");
-  //   } else {
-  //     dispatch(resetProfile());
-  //     history.push("/auth/login");
-  //   }
-  // }, [isLoggedIn, history]);
+  useEffect(() => {
+    if (isLoggedIn) {
+      history.push("/user/profile");
+    } else {
+      dispatch(resetProfile());
+      history.push("/auth/login");
+    }
+  }, [isLoggedIn, history]);
 
-  // useEffect(() => {
-  //   if (user) {
-  //     const decodedToken = jwt_decode(user.token);
-  //     if (Date.now() >= decodedToken.exp * 1000) {
-  //       dispatch(logOutUser());
-  //     }
-  //   }
-  // }, [location, user, dispatch]);
+  useEffect(() => {
+    if (user) {
+      const decodedToken = jwt_decode(user.token);
+      if (Date.now() >= decodedToken.exp * 1000) {
+        dispatch(logOutUser());
+      }
+    }
+  }, [location, user, dispatch]);
   return (
     <div className="App">
       {isLoggedIn && <Header />}

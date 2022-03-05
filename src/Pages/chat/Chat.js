@@ -1,10 +1,16 @@
 import React from "react";
 import "./chat.css";
 import Avatar from "../../Components/Avatar/Avatar";
+import Message from "../../Components/Chat/Message/Message";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import CreateIcon from "@material-ui/icons/Create";
 import SearchIcon from "@material-ui/icons/Search";
 import VideoCallIcon from "@material-ui/icons/VideoCall";
+import ImageIcon from "@material-ui/icons/Image";
+import AttachFileIcon from "@material-ui/icons/AttachFile";
+import GifIcon from "@material-ui/icons/Gif";
+import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
+import CurvedButton from "../../Components/Button/CurveButton/CurveButton";
 
 const conversations = [
   {
@@ -44,6 +50,18 @@ const conversations = [
   },
 ];
 
+const messages = [
+  {
+    username: "Mohammad shandar",
+    content: "Hi Natesh",
+    time: "9:30 am",
+  },
+  {
+    username: "Natesh",
+    content: "Hi Shandar",
+    time: "9:31 am",
+  },
+];
 function chat() {
   return (
     <div className="chat">
@@ -98,10 +116,34 @@ function chat() {
               <VideoCallIcon />
             </div>
           </div>
-          <div className="content"></div>
+          <div className="content">
+            {messages.map((message) => {
+              return (
+                <Message
+                  content={message.content}
+                  time={message.time}
+                  username={message.username}
+                />
+              );
+            })}
+          </div>
           <div className="chat-input">
-            <textarea placeholder="Write a message..."></textarea>
-            <div className="input-icons"></div>
+            <textarea
+              className="chat-text-area"
+              placeholder="Write a message..."
+            ></textarea>
+            <div className="input-icons">
+              <div className="left">
+                <ImageIcon />
+                <AttachFileIcon />
+                <GifIcon />
+                <InsertEmoticonIcon />
+              </div>
+              <div className="right">
+                <CurvedButton type="button" color="blue" title="send" />
+                <MoreHorizIcon />
+              </div>
+            </div>
           </div>
         </div>
       </div>
