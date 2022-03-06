@@ -1,10 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Avatar from "../../../../../Components/Avatar/Avatar";
 import "./ConversationListItem.css";
+import { useDispatch, useSelector } from "react-redux";
+import { setSelectedConversation } from "../../../../../slices/Chat/ChatSlice";
 
-function ConversationListItem({ conv }) {
+function ConversationListItem({ conv, isSelected, onClick, id }) {
+  const selectedConversation = useSelector(
+    (state) => state.chat.selectedConversation
+  );
+  const user = useSelector((state) => state.user.user);
+  const [conversation, setConversation] = useState();
+  const dispatch = useDispatch();
+  let classes = "li ";
+  if (isSelected) classes = classes + "is-selected";
+
+  useEffect(() => {
+    const otherUser = conv.members.find((member) => member._id !== 1);
+    setConversation({
+      user_name: otherUser.user_name,
+      createdDate: conv.createdDate || "9:30am",
+    });
+  }, [conv]);
+
   return (
-    <li className="li">
+    <li
+      className={classes}
+      onClick={() => {
+        onClick(selectedConversation?._id);
+        dispatch(setSelectedConversation(conv));
+      }}
+    >
       <div className="li-div">
         <Avatar
           width="35px"
@@ -16,10 +41,10 @@ function ConversationListItem({ conv }) {
       </div>
       <div className="li-info">
         <div className="info">
-          <h5>{conv.user_name}</h5>
-          <p>{conv.date}</p>
+          <h5>{conversation?.user_name}</h5>
+          <p>{conversation?.createdDate || "9:30am"}</p>
         </div>
-        <div className="message">{conv["last message"]}</div>
+        <div className="message">{"user:some message"}</div>
       </div>
     </li>
   );

@@ -6,6 +6,15 @@
   border-bottom: 1px solid gray;
 }
 
+.li.is-selected {
+  border-left: 3px solid green;
+  background-color: rgb(224, 237, 241);
+}
+
+.li:hover {
+  background-color: lightgray;
+}
+
 .list .li .li-div {
   margin-right: 1rem;
 }

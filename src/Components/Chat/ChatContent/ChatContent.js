@@ -1,23 +1,31 @@
 import React from "react";
 
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-
-import ImageIcon from "@material-ui/icons/Image";
-import AttachFileIcon from "@material-ui/icons/AttachFile";
-import GifIcon from "@material-ui/icons/Gif";
-import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
-import CurvedButton from "../../../Components/Button/CurveButton/CurveButton";
-
 import ChatContentHeader from "./ChatContentHeader/ChatContentHeader";
 import Messages from "./Messages/Messages";
 import ChatInput from "./ChatInput/ChatInput";
+import { useSelector } from "react-redux";
 
 import "./ChatContent.css";
 
 function ChatContent() {
+  const selectedConversation = useSelector(
+    (state) => state.chat.selectedConversation
+  );
   return (
     <div className="chat-content">
       <ChatContentHeader />
+      {selectedConversation && !selectedConversation?._id && (
+        <input
+          type="text"
+          placeholder="Type a name or multiple names"
+          style={{
+            width: "100%",
+            padding: "1rem",
+            border: "none",
+            borderBottom: "1px solid black",
+          }}
+        />
+      )}
       <Messages />
       <ChatInput />
     </div>
