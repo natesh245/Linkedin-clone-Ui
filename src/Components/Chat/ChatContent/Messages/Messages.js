@@ -17,6 +17,7 @@ function Messages() {
     (state) => state.chat.selectedConversation
   );
   const [messagesArray, setMessagesArray] = useState([]);
+  const [newMessageArrived, setNewMessageArrived] = useState(null);
 
   useEffect(() => {
     if (messageEl) {
@@ -57,10 +58,17 @@ function Messages() {
     if (socket)
       socket.on("receive-message", (message) => {
         if (selectedConversation._id === message.conversationID) {
-          dispatch(setMessages([...messages, message]));
+          setNewMessageArrived(true);
         }
       });
-  }, [socket, selectedConversation]);
+  }, [socket]);
+
+  useEffect(() => {
+    if (newMessageArrived) {
+      setMessages([...messages, newMessageArrived]);
+      setNewMessageArrived(null);
+    }
+  }, [newMessageArrived]);
   return (
     <div className="content" ref={messageEl}>
       {messagesArray.map((message) => {
