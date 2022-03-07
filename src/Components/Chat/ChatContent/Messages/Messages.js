@@ -1,51 +1,36 @@
-import { SatelliteTwoTone } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Message from "./Message/Message";
 import "./Messages.css";
-
-// let messages = [
-//   {
-//     username: "Mohammad shandar",
-//     content: "Hi Natesh",
-//     time: "9:30 am",
-//   },
-//   {
-//     username: "Natesh",
-//     content: "Hi Shandar",
-//     time: "9:31 am",
-//   },
-// ];
-
-// messages = [];
+import { format } from "date-fns";
 
 function Messages() {
   const messages = useSelector((state) => state.chat.messages);
-  const user = useSelector((state) => state.user.user);
+
   const selectedConversation = useSelector(
     (state) => state.chat.selectedConversation
   );
   const [messagesArray, setMessagesArray] = useState([]);
   useEffect(() => {
     if (selectedConversation) {
-      const otherUser = selectedConversation.members.find(
-        (member) => member.user_id !== 1
-      );
-      console.log(otherUser);
+      const otherUser = selectedConversation.otherUser;
+      const user = selectedConversation.currentUser;
 
       setMessagesArray(
         messages.map((message) => {
-          if (message.senderID === 1)
+          const messageObj = {
+            content: message.content,
+            time: message.createdAt,
+          };
+          if (message.senderID === user._id)
             return {
+              ...messageObj,
               username: user.first_name + " " + user.last_name,
-              content: message.content,
-              time: "9:40am",
             };
           else if (message.senderID === otherUser.user_id)
             return {
+              ...messageObj,
               username: otherUser.user_name,
-              content: message.content,
-              time: "9:40am",
             };
         })
       );
@@ -58,7 +43,7 @@ function Messages() {
         return (
           <Message
             content={message.content}
-            time={message.time}
+            time={format(new Date(message.time), "dd/MM/yyyy HH:mm")}
             username={message.username}
           />
         );

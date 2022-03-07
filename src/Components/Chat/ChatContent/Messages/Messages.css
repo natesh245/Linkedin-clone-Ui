@@ -1,4 +1,5 @@
 .chat-content .content {
   height: 50%;
   /* background-color: #f3f2ef; */
+  overflow-y: scroll;
 }

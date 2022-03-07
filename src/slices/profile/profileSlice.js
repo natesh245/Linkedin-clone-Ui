@@ -235,7 +235,7 @@ export const profileSlice = createSlice({
       .addCase(getProfileByUserId.fulfilled, (state, action) => {
         if (action.payload.data) {
           const { data, message } = action.payload.data;
-          if (user._id === data.user) state.myProfile = data;
+          if (user?._id === data.user) state.myProfile = data;
           state.selectedProfile = data;
         }
       })

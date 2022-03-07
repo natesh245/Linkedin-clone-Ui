@@ -115,52 +115,8 @@ export const createMessages = createAsyncThunk(
 const initialState = {
   selectedConversation: null,
   selectedMembers: [],
-  conversations: [
-    {
-      _id: 1,
-      members: [
-        { user_name: "Natesh", user_id: 1 },
-        { user_name: "Shandar", user_id: 2 },
-      ],
-    },
-    {
-      _id: 2,
-      members: [
-        { user_name: "Natesh", user_id: 1 },
-        { user_name: "Sinan", user_id: 3 },
-      ],
-    },
-    {
-      _id: 3,
-      members: [
-        { user_name: "Natesh", user_id: 1 },
-        { user_name: "suresh", user_id: 4 },
-      ],
-    },
-  ],
-  messages: [
-    {
-      _id: 1,
-      senderID: 1,
-      receiverID: 2,
-      conversationID: 1,
-      content: "hello 246",
-    },
-    {
-      _id: 2,
-      senderID: 2,
-      receiverID: 1,
-      conversationID: 1,
-      content: "Hi",
-    },
-    {
-      _id: 2,
-      senderID: 2,
-      receiverID: 1,
-      conversationID: 1,
-      content: "I'm in office",
-    },
-  ],
+  conversations: [],
+  messages: [],
   selectedChatName: null,
 };
 
@@ -189,8 +145,19 @@ export const chatSlice = createSlice({
       .addCase(getAllConversationsByUserId.fulfilled, (state, action) => {
         if (action.payload.data) {
           const { data, message } = action.payload.data;
-
-          state.conversations = data;
+          const conversations = data.map((d) => {
+            const members = d.members;
+            const otherUser = members.find(
+              (member) => member.user_id !== user._id
+            );
+            delete d["members"];
+            return {
+              ...d,
+              otherUser,
+              currentUser: user,
+            };
+          });
+          state.conversations = conversations;
         }
       })
       .addCase(createConversation.fulfilled, (state, action) => {
