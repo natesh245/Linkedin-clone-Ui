@@ -26,7 +26,8 @@ function ConversationListItem({ conv, isSelected }) {
   }, [conv]);
 
   useEffect(() => {
-    dispatch(getAllMessagesByConversationId(selectedConversation._id));
+    if (selectedConversation)
+      dispatch(getAllMessagesByConversationId(selectedConversation?._id));
   }, [selectedConversation]);
 
   return (

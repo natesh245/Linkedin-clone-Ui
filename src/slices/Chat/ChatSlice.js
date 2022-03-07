@@ -148,7 +148,7 @@ export const chatSlice = createSlice({
           const conversations = data.map((d) => {
             const members = d.members;
             const otherUser = members.find(
-              (member) => member.user_id !== user._id
+              (member) => member.user_id !== user?._id
             );
             delete d["members"];
             return {
