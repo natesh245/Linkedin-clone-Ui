@@ -11,12 +11,21 @@ function Messages() {
   const messages = useSelector((state) => state.chat.messages);
   const socket = useContext(socketContext);
   const dispatch = useDispatch();
-  const divRef = useRef();
+  const messageEl = useRef();
 
   const selectedConversation = useSelector(
     (state) => state.chat.selectedConversation
   );
   const [messagesArray, setMessagesArray] = useState([]);
+
+  useEffect(() => {
+    if (messageEl) {
+      messageEl.current.addEventListener("DOMNodeInserted", (event) => {
+        const { currentTarget: target } = event;
+        target.scroll({ top: target.scrollHeight, behavior: "smooth" });
+      });
+    }
+  }, []);
 
   useEffect(() => {
     if (selectedConversation) {
@@ -45,10 +54,6 @@ function Messages() {
   }, [messages, selectedConversation]);
 
   useEffect(() => {
-    if (divRef.current) divRef.current.scrollIntoView({ behavior: "smooth" });
-  }, [messagesArray]);
-
-  useEffect(() => {
     if (socket)
       socket.on("receive-message", (message) => {
         if (selectedConversation._id === message.conversationID) {
@@ -57,7 +62,7 @@ function Messages() {
       });
   }, [socket, selectedConversation]);
   return (
-    <div className="content">
+    <div className="content" ref={messageEl}>
       {messagesArray.map((message) => {
         if (!message) return null;
         return (
@@ -68,7 +73,6 @@ function Messages() {
           />
         );
       })}
-      {/* <div ref={divRef}></div> */}
     </div>
   );
 }
