@@ -58,14 +58,15 @@ function Messages() {
     if (socket)
       socket.on("receive-message", (message) => {
         if (selectedConversation._id === message.conversationID) {
-          setNewMessageArrived(true);
+          setNewMessageArrived(message);
         }
       });
   }, [socket]);
 
   useEffect(() => {
     if (newMessageArrived) {
-      setMessages([...messages, newMessageArrived]);
+      console.log(newMessageArrived);
+      dispatch(setMessages([...messages, newMessageArrived]));
       setNewMessageArrived(null);
     }
   }, [newMessageArrived]);
