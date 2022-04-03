@@ -65,7 +65,6 @@ function Messages() {
 
   useEffect(() => {
     if (newMessageArrived) {
-      console.log(newMessageArrived);
       dispatch(setMessages([...messages, newMessageArrived]));
       setNewMessageArrived(null);
     }

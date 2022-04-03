@@ -15,7 +15,6 @@ function ListHeader() {
         <MoreHorizIcon style={{ marginRight: "5px" }} />
         <CreateIcon
           onClick={() => {
-            dispatch(setSelectedConversation({ members: [user._id] }));
             console.log("clicking");
           }}
         />

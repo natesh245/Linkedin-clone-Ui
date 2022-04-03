@@ -28,11 +28,14 @@ function Chat() {
     setSocket(newSocket);
 
     if (user) dispatch(getAllConversationsByUserId(user._id));
-    if (!selectedConversation && conversations.length > 0)
-      dispatch(setSelectedConversation(conversations[0]));
 
     return () => newSocket.close();
   }, []);
+
+  useEffect(() => {
+    if (!selectedConversation && conversations.length > 0)
+      dispatch(setSelectedConversation(conversations[0]));
+  }, [conversations]);
 
   return (
     <div className="chat">
