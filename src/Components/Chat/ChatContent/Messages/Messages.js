@@ -29,7 +29,7 @@ function Messages() {
   }, []);
 
   useEffect(() => {
-    if (selectedConversation) {
+    if (selectedConversation && selectedConversation._id) {
       const otherUser = selectedConversation.otherUser;
       const user = selectedConversation.currentUser;
 
@@ -69,10 +69,11 @@ function Messages() {
       setNewMessageArrived(null);
     }
   }, [newMessageArrived]);
+
   return (
     <div className="content" ref={messageEl}>
       {messagesArray.map((message) => {
-        if (!message) return null;
+        if (!message || !selectedConversation?._id) return null;
         return (
           <Message
             content={message.content}
