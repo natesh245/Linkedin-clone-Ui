@@ -1,0 +1,33 @@
+ul.search-results {
+  position: fixed;
+  width: 80vh;
+  top: 4.5rem;
+  left: 1rem;
+
+  z-index: 1000;
+  padding: 1rem;
+
+  border-radius: 5px;
+}
+
+ul.search-results li {
+  display: flex;
+  align-items: center;
+
+  padding: 10px;
+}
+
+ul.search-results li h4 {
+  margin: 0 1rem;
+  font-size: 1rem;
+}
+
+ul.search-results li p {
+  color: gray;
+  font-size: 0.9rem;
+}
+
+.search-input-expand + div ul.search-results {
+  width: 80%;
+  left: 10%;
+}
