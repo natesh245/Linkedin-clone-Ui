@@ -71,6 +71,7 @@ function SearchInput({ toggleHeader }) {
           <SearchResultList
             setShowSearchResult={setShowSearchResult}
             searchQuery={searchQuery}
+            className="search-results"
           />
         </BackDrop>
       )}

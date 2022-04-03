@@ -10,18 +10,14 @@ function SearchResultList({
   onClickListItem,
   setShowSearchResult,
   searchQuery,
-  style,
+  className,
 }) {
   const dispatch = useDispatch();
 
   const searchResults = useSelector((state) => state.profile.searchResults);
 
   return (
-    <ul
-      className="search-results"
-      style={style}
-      onClick={(event) => event.stopPropagation()}
-    >
+    <ul className={className} onClick={(event) => event.stopPropagation()}>
       {(searchResults.length === 0 || searchQuery === "") && (
         <li style={{ justifyContent: "center" }}>No Results</li>
       )}
